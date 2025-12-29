@@ -14,6 +14,9 @@
 #ifndef PUSH_SWAP
 
 #include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+
 
 
 #endif
