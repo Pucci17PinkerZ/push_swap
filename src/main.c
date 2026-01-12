@@ -52,7 +52,7 @@ int	check_args(char **arg_list, t_node *a)
 	{
 		if (check_nbr(arg_list[i]))
 			return (1);
-		
+		new_node();
 		i++;
 	}
 }
@@ -69,4 +69,9 @@ int	check_nbr(char *arg)
 		j++;
 	}
 	return (0);
+}
+
+void	new_node()
+{
+
 }

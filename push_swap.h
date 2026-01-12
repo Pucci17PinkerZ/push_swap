@@ -24,9 +24,9 @@ typedef struct s_node
 {
 	int	nbr;
 	int	cost;
+	int pos;
 	struct t_node *next;
 	struct t_node *prev;
-	
 }	t_node;
 
 //fonction de swap
