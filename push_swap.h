@@ -10,13 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#define PUSH_SWAP
-#ifndef PUSH_SWAP
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
+
 
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include "../libft/libft.h"
+#include "../ft_printf/ft_printf.h"
+
+typedef struct s_node
+{
+	int	nbr;
+	int	cost;
+	struct t_node *next;
+	struct t_node *prev;
+	
+}	t_node;
+
+//fonction de swap
+void	sa();
+void	sb();
+void	ss();
+void	ra();
+void	rb();
+void	rr();
+void	rra();
+void	rrb();
+void	rrr();
+void	pa();
+void	pb();
 
 
+// fonction de clean
+
+//fonction de tri
+
+//autre fonctions
 
 #endif

@@ -8,7 +8,20 @@ NAME = push_swap
 OBJ = $(SRC:.c=.o)
 INCLUDES = -I $(LIBFTDIR) -I $(FTPRINTFDIR)
 RM := rm -f
-SRC = main.c
+SRC = src/main.c \
+src/utils.c\
+command/sa.c \
+command/sb.c \
+command/ss.c \
+command/pa.c \
+command/pb.c \
+command/ra.c \
+command/rb.c \
+command/rr.c \
+command/rra.c \
+command/rrb.c \
+command/rrr.c \
+
 
 all: $(NAME)
 	
