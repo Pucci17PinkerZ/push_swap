@@ -46,13 +46,16 @@ int	check_input(int ac, char **av, t_node *a)
 int	check_args(char **arg_list, t_node *a)
 {
 	int	i;
+	int	nbr;
 
 	i = 0;
+	nbr = 0;
 	while (arg_list[i])
 	{
 		if (check_nbr(arg_list[i]))
 			return (1);
-		new_node();
+		nbr = ft_atoi(arg_list[i]);
+		set_node(a, nbr);
 		i++;
 	}
 }
@@ -68,10 +71,37 @@ int	check_nbr(char *arg)
 			return (1);
 		j++;
 	}
+	if (arg[j - 1] == '-')
+		return (1);
 	return (0);
 }
 
-void	new_node()
+void	set_node(t_node *a, int nbr)
 {
+	t_node	*end_node;
+	t_node	*new_node;
 
+	ft_bzero(new_node, sizeof(t_node));
+	if (a->next == NULL)
+		a->nbr = nbr;
+	else
+	{
+		end_node = last_node(a);
+		new_node = malloc(sizeof(t_node));
+		if (!new_node)
+			return (1);
+		new_node->nbr = nbr;
+		end_node->next = new_node;
+	}
+}
+
+t_node	*last_node(t_node *a)
+{
+	if (!a)
+		return (NULL);
+	while (a->next)
+	{
+		a = a->next;
+	}
+	return (a);
 }
