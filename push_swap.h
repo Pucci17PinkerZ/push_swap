@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfiora-d <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2025/10/03 12:43:43 by nfiora-d         ###   ####lausanne.ch   */
+/*   Updated: 2026/01/15 17:37:06 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,10 @@ void	pb();
 //fonction de tri
 
 //autre fonctions
+int	check_input(int ac, char **av, t_node *a);
+int	check_args(char **arg_list, t_node *a);
+int	check_nbr(char *arg);
+void	set_node(t_node *a, int nbr);
+t_node	*last_node(t_node *a);
 
 #endif
