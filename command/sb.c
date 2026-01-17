@@ -6,11 +6,11 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:24:14 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/16 22:46:29 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/17 19:06:01 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sb(t_node *b)
 {

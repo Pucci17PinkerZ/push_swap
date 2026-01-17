@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:23:46 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/17 18:10:29 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/17 19:12:26 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	pa(t_node *a, t_node *b)
 	new_top_a = a->next;
 	b->prev = a;
 	a->next = b;
-	*b = a;
-	*a = new_top_a;
-}
-}
+	b = a;
+	a = new_top_a;
 }

@@ -6,11 +6,11 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:23:50 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/16 22:46:50 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/17 19:13:21 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pb(t_node *b, t_node *a)
 {
@@ -20,6 +20,6 @@ void	pb(t_node *b, t_node *a)
 	new_top_b = b->next;
 	a->prev = b;
 	b->next = a;
-	*a = b;
-	*b = new_top_b;
+	a = b;
+	b = new_top_b;
 }

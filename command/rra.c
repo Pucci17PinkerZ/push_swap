@@ -6,22 +6,22 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:24:03 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/16 22:42:45 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/17 19:20:15 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	rra(t_node *a)
 {
-	t_node	end;
-	t_node	new_end;
+	t_node	*end;
+	t_node	*new_end;
 
 	end = last_node(a);
-	new_end = end.prev;
-	new_end.next = NULL;
-	end.prev = NULL;
-	a->prev = &end;
-	end.next = a;
-	*a = end;
+	new_end = end->prev;
+	new_end->next = NULL;
+	end->prev = NULL;
+	a->prev = end;
+	end->next = a;
+	a = end;
 }
