@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfiora-d <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2025/10/03 12:43:43 by nfiora-d         ###   ####lausanne.ch   */
+/*   Updated: 2026/01/17 18:08:14 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	main(int ac, char **av)
 {
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 
 	ft_bzero(&a, sizeof(t_node));
 	ft_bzero(&b, sizeof(t_node));
-	if (check_intput(ac, av, &a))
+	if (check_input(ac, av, &a))
 		return (1);
 
 	return (0);
@@ -58,6 +58,7 @@ int	check_args(char **arg_list, t_node *a)
 		set_node(a, nbr);
 		i++;
 	}
+	return (0);
 }
 
 int	check_nbr(char *arg)
@@ -76,12 +77,11 @@ int	check_nbr(char *arg)
 	return (0);
 }
 
-void	set_node(t_node *a, int nbr)
+int	set_node(t_node *a, int nbr)
 {
 	t_node	*end_node;
 	t_node	*new_node;
 
-	ft_bzero(new_node, sizeof(t_node));
 	if (a->next == NULL)
 		a->nbr = nbr;
 	else
@@ -93,15 +93,19 @@ void	set_node(t_node *a, int nbr)
 		new_node->nbr = nbr;
 		end_node->next = new_node;
 	}
+	return (0);
 }
 
 t_node	*last_node(t_node *a)
 {
+	t_node	*final_node;
+	
 	if (!a)
 		return (NULL);
 	while (a->next)
 	{
-		a = a->next;
+		final_node = a->next;
+		a = final_node;
 	}
 	return (a);
 }
