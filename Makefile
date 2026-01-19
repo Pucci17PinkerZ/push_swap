@@ -10,6 +10,7 @@ INCLUDES = -I $(LIBFTDIR) -I $(FTPRINTFDIR)
 RM := rm -f
 SRC = src/main.c \
 src/utils.c\
+src/parsing.c\
 command/sa.c \
 command/sb.c \
 command/ss.c \

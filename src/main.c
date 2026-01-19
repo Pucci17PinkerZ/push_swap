@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/17 18:08:14 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/19 14:16:25 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	main(int ac, char **av)
 {
-	// checker ce qui rentre
-
 	t_node	a;
 	t_node	b;
 
@@ -23,89 +21,63 @@ int	main(int ac, char **av)
 	ft_bzero(&b, sizeof(t_node));
 	if (check_input(ac, av, &a))
 		return (1);
-
+	if (sort_node(&a, &b))
+		return (1);
 	return (0);
 }
 
-int	check_input(int ac, char **av, t_node *a)
+int	sort_node(t_node *a, t_node *b)
 {
-	char **arg_list;
+	int	node_left;
 
-	if (ac != 2)
-		return (1);
-	arg_list = ft_split(av[2], ' ');
-	if (!arg_list)
-		return (1);
-	if (check_args(arg_list, a))
-		return (1);
-
-
-	return (0);
-}
-
-int	check_args(char **arg_list, t_node *a)
-{
-	int	i;
-	int	nbr;
-
-	i = 0;
-	nbr = 0;
-	while (arg_list[i])
+	node_left = 0;
+	if (node_left > 3)
+		{
+			pa(a, b);
+			pa(a, b);
+		}
+	while (is_node_sorted())
 	{
-		if (check_nbr(arg_list[i]))
-			return (1);
-		nbr = ft_atoi(arg_list[i]);
-		set_node(a, nbr);
-		i++;
+		
 	}
-	return (0);
-}
-
-int	check_nbr(char *arg)
-{
-	int	j;
-
-	j = 0;
-	while (arg[j])
-	{
-		if(!(ft_isdigit(arg[j]) || arg[j] == '-'))//checker comment faire pour "--"
-			return (1);
-		j++;
-	}
-	if (arg[j - 1] == '-')
-		return (1);
-	return (0);
-}
-
-int	set_node(t_node *a, int nbr)
-{
-	t_node	*end_node;
-	t_node	*new_node;
-
-	if (a->next == NULL)
-		a->nbr = nbr;
-	else
-	{
-		end_node = last_node(a);
-		new_node = malloc(sizeof(t_node));
-		if (!new_node)
-			return (1);
-		new_node->nbr = nbr;
-		end_node->next = new_node;
-	}
-	return (0);
-}
-
-t_node	*last_node(t_node *a)
-{
-	t_node	*final_node;
 	
-	if (!a)
-		return (NULL);
-	while (a->next)
+}
+
+void	node_position(t_node *a)
+{
+	t_node	*next_node;
+	t_node	*tmp;
+
+	tmp = a;
+	tmp->pos = 1;
+	while(tmp->next)
 	{
-		final_node = a->next;
-		a = final_node;
+		next_node = tmp->next;
+		next_node->pos++;
+		tmp = next_node;
 	}
-	return (a);
+	return ;
+}
+
+int	is_node_sorted()
+{
+	t_node	*tmp;
+	t_node	*bigger;
+	t_node	*low;
+
+	tmp = a;
+	
+	while(tmp->next)
+	{
+		if (tmp->nbr < bigger->nbr)
+		{
+			
+		}
+		next_node = tmp->next;
+		next_node->pos++;
+		tmp = next_node;
+		else
+			return (1);
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/17 19:09:37 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/19 13:49:25 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ void	rrb(t_node *a);
 void	rrr(t_node *a, t_node *b);
 void	pa(t_node *a, t_node *b);
 void	pb(t_node *a, t_node *b);
+
+//turk algo
+int	sort_node(t_node *a, t_node *b);
 
 //fonction annexe au swap
 t_node	*find_node_c(t_node *a);
