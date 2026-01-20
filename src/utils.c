@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/17 18:07:39 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/20 19:37:19 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,60 @@
 void	clean_exit()
 {
 	
+}
+
+void	sort_three(t_node *a) //pas certain des conditions ici
+{
+	int	num1;
+	int	num2;
+	int	num3;
+
+	num1 = a->nbr;
+	num2 = a->next->nbr;
+	num3 = a->next->next->nbr;
+	if (num1 < num2 && num2 > num3 && num1 < num3)
+		rra(a);
+	else if (num1 > num2 && num2 > num3 && num1 > num3)
+		ra(a);
+	if (num1 > num2 && num2 < num3 && num1 > num3)
+		sa(a);
+	else if (num1 < num2&& num2 > num3 && num1 > num3)
+		rra(a);
+	else if (num1 > num2&& num2 < num3 && num1 > num3)
+		ra(a);
+}
+
+int	stack_size(t_node *node)
+{
+	t_node *next_node;
+	int		i;
+	
+	i = 0;
+	next_node = node->next;
+	while(next_node->next)
+	{
+		next_node = next_node->next;
+		i++;
+	}
+	return (i);
+}
+
+int		check_stack_order(t_node *a)
+{
+	t_node	*node
+	int		num;
+	int		i;
+	
+	i = 0;
+	node = a;
+	num = a->nbr;
+	while (i++ < stack_size(a))
+	{
+		node = node->next;
+		if (num > node->nbr)
+			return (0);
+		num = node->nbr;
+	}
+	//ici une fonction pour clear les nodes
+	return (1);//atteint cette ligne
 }

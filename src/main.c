@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/19 14:16:25 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/20 19:14:13 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int ac, char **av)
 	ft_bzero(&b, sizeof(t_node));
 	if (check_input(ac, av, &a))
 		return (1);
+	if (check_doubles(&a))
+		return (supprimer les stack car impossible);
 	if (sort_node(&a, &b))
 		return (1);
 	return (0);
@@ -30,15 +32,21 @@ int	sort_node(t_node *a, t_node *b)
 {
 	int	node_left;
 
-	node_left = 0;
+	node_left = stack_size(a);
+	if()//checker si c'est déjà dans l'ordre
 	if (node_left > 3)
 		{
 			pa(a, b);
 			pa(a, b);
 		}
-	while (is_node_sorted())
+	while (stack_size(a) != 3)
 	{
+		//fonction qui trouve le min et max
+		//il doit stocker sa qqpart
+
 		
+		//calculer le cost de chaque move$
+		//
 	}
 	
 }
@@ -59,23 +67,22 @@ void	node_position(t_node *a)
 	return ;
 }
 
-int	is_node_sorted()
+int	is_node_sorted(t_node *a)
 {
 	t_node	*tmp;
-	t_node	*bigger;
+	t_node	*big;
 	t_node	*low;
 
-	tmp = a;
-	
-	while(tmp->next)
+	low = a;
+	big = low->next;
+	while(big->next)
 	{
-		if (tmp->nbr < bigger->nbr)
+		if (low->nbr < big->nbr)
 		{
-			
+			tmp = big;
+			low = big;
+			big = tmp->next;
 		}
-		next_node = tmp->next;
-		next_node->pos++;
-		tmp = next_node;
 		else
 			return (1);
 	}

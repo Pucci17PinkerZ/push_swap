@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/19 13:49:25 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/20 19:20:36 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	pa(t_node *a, t_node *b);
 void	pb(t_node *a, t_node *b);
 
 //turk algo
-int	sort_node(t_node *a, t_node *b);
+int		sort_node(t_node *a, t_node *b);
+int		check_stack_order(t_node *a);
 
 //fonction annexe au swap
 t_node	*find_node_c(t_node *a);
@@ -53,10 +54,11 @@ t_node	*find_node_c(t_node *a);
 //fonction de tri
 
 //autre fonctions
-int	check_input(int ac, char **av, t_node *a);
-int	check_args(char **arg_list, t_node *a);
-int	check_nbr(char *arg);
-int	set_node(t_node *a, int nbr);
+int		check_input(int ac, char **av, t_node *a);
+int		check_args(char **arg_list, t_node *a);
+int		check_nbr(char *arg);
+int		set_node(t_node *a, int nbr);
 t_node	*last_node(t_node *a);
+int		stack_size(t_node *node);
 
 #endif
