@@ -20,7 +20,7 @@ void	push_a_to_b(t_game *a, t_game *b)
 	node_position(b);
 	while (stack_size(a) != 3)
 	{
-		find_all_target();
+		find_all_target(a, b);
 	}
 }
 
@@ -34,13 +34,20 @@ void	find_all_target(t_game *a, t_game *b)
 	}
 }
 
-t_node	*find_target_b(t_node *b)
+t_node	*find_target_b(t_node *b, int nbr)
 {
 	t_node	*tmp_target;
 	t_node	*target;
 
-	while(b->next)
+	tmp_target = b;
+	while(tmp_target->next)
 	{
-		
+		if (nbr > tmp_target->nbr)
+		{
+			if (!target)
+			    target = tmp_target;
+			else if (tmp_target->nbr > target->nbr)
+			    target = tmp_target
+		}
 	}
 }
