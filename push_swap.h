@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/20 19:20:36 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/21 17:55:42 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_node
 	int pos;
 	struct s_node *next;
 	struct s_node *prev;
+	struct s_node *target;
 }	t_node;
 
 //fonction de swap
@@ -45,6 +46,7 @@ void	pb(t_node *a, t_node *b);
 //turk algo
 int		sort_node(t_node *a, t_node *b);
 int		check_stack_order(t_node *a);
+void	node_position(t_node *a);
 
 //fonction annexe au swap
 t_node	*find_node_c(t_node *a);
