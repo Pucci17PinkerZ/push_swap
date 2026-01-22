@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:24:03 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/22 12:48:55 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 20:02:51 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	rra(t_node *a)
 	a->prev = end;
 	end->next = a;
 	a = end;
-	ft_printf("rra");
+	ft_printf("rra\n");
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:14:57 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/22 19:39:33 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 19:56:15 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,16 @@ void	push_a_to_b(t_stacks *stacks)
 		find_min_max(stacks);
 		find_all_target(stacks);
 		//push_cost(stacks);//not done too//only for B to A
-		find_cheapest();//not done
+		// find_cheapest();//not done
+		push_to_top(stacks);
 		do_push();//not done
 	}
 	sort_three();
+}
+
+void	push_to_top(t_stacks *stacks)
+{
+	
 }
 
 void	push_cost(t_stacks *stacks)

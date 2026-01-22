@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:24:11 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/22 12:49:28 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 20:03:01 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sa(t_node *a)
 	b->next = a;
 	a->next = c;
 	a = b;
-	ft_printf("sa");
+	ft_printf("sa\n");
 	return ;
 }
 
