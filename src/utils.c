@@ -6,13 +6,13 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/22 12:45:33 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 13:40:01 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	clean_exit()
+void	clean_exit(t_stacks *stacks)
 {
 	
 }
@@ -76,4 +76,20 @@ int		check_stack_order(t_node *a)
 int	check_doubles()
 {
 	
+}
+
+void	node_position(t_node *a)
+{
+	t_node	*next_node;
+	t_node	*tmp;
+
+	tmp = a;
+	tmp->pos = 1;
+	while(tmp->next)
+	{
+		next_node = tmp->next;
+		next_node->pos++;
+		tmp = next_node;
+	}
+	return ;
 }

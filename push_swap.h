@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/22 12:31:59 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 13:44:37 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	t_node	head_a;
-	t_node	head_b;
+	t_node	*head_a;
+	t_node	*head_b;
 	t_node	cheapest;
 	int	min;
 	int	max;
-	
+	int	a_len;
+	int	b_len;
 }	t_stack;
 
 //fonction de swap
