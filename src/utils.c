@@ -6,16 +6,13 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/22 13:40:01 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 16:12:03 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	clean_exit(t_stacks *stacks)
-{
-	
-}
+
 
 void	sort_three(t_node *a) //pas certain des conditions ici
 {

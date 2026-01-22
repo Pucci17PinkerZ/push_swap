@@ -11,6 +11,8 @@ RM := rm -f
 SRC = src/main.c \
 src/utils.c\
 src/parsing.c\
+src/find_min_max.c\
+src/clean_exit.c\
 command/sa.c \
 command/sb.c \
 command/ss.c \
