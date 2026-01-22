@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:14:57 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/22 17:12:18 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 19:39:33 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,68 @@
 
 void	push_a_to_b(t_stacks *stacks)
 {
-	pa(a, b);
-	pa(a, b);
+	pb(a, b);
+	pb(a, b);
 	node_position(a);
 	node_position(b);
 	while (stack_size(a) != 3)
 	{
 		node_position(a)
 		node_position(b);
-		find_min_max(stack);
-		find_all_target(a, b);
-		push_cost();//not done too
+		find_min_max(stacks);
+		find_all_target(stacks);
+		//push_cost(stacks);//not done too//only for B to A
 		find_cheapest();//not done
 		do_push();//not done
 	}
 	sort_three();
 }
 
-void	find_all_target(t_game *a, t_game *b)
+void	push_cost(t_stacks *stacks)
+{
+	t_node	*next_node;
+
+	next_node = stacks->head_a;
+	while (next_node->next)
+	{
+		
+		next_node = next_node->next;
+	}
+}
+
+void	find_all_target(t_stacks *stacks)
 {
 	t_node	*next_node;
 	
-	next_node = a;
-	while (next->next)
+	next_node = stacks->head_a;
+	while (next_node->next)
 	{
-		next_node->target = find_target_b(b);
+		next_node->target = find_target_b(stacks->head_b,
+				next_node->nbr, stacks->max_a);
 		next_node = next_node->next;
 	}
 	return ;
 }
 
-t_node	*find_target_b(t_node *b, int nbr)
+t_node	*find_target_b(t_node *b, int nbr, t_node *max_a)
 {
-	t_node	*tmp_target;
+	t_node	*actual_smaller;
 	t_node	*target;
 
-	tmp_target = b;
-	while(tmp_target->next)
+	actual_smaller = b;
+	target = NULL;
+	while(actual_smaller->next)
 	{
-		if (nbr > tmp_target->nbr)
+		if (nbr < actual_smaller->nbr)
 		{
 			if (!target)
-				target = tmp_target;
-			else if (tmp_target->nbr > target->nbr)
-				
-				target = tmp_target;
+				target = actual_smaller;
+			else if (actual_smaller->nbr > target->nbr)
+				target = actual_smaller;
 		}
-		//changement de struct
+		actual_smaller = actual_smaller->next;
 	}
-	if ()
+	if (!target)
+		target = max_a;
+	return (target);
 }

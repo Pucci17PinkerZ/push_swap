@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/22 16:12:56 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 18:47:04 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ typedef struct s_stack
 {
 	t_node	*head_a;
 	t_node	*head_b;
-	§t_node	cheapest;
+	t_node	cheapest;
 	t_node	*min_a;
 	t_node	*max_a;
 	t_node	*min_b;
 	t_node	*max_b;
-	int	a_len;
-	int	b_len;
+	int		a_len;
+	int		b_len;
+
 }	t_stack;
 
 //fonction de swap
@@ -61,6 +62,8 @@ int		sort_node(t_node *a, t_node *b);
 int		check_stack_order(t_node *a);
 void	node_position(t_node *a);
 void	push_a_to_b(t_stacks *stacks);
+void	find_all_target(t_stacks *stacks);
+t_node	*find_target_b(t_node *b, int nbr, t_node *max_a);
 t_node	*find_min(t_node *head);
 t_node	*find_max(t_node *head);
 
