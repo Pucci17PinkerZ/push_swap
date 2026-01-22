@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:24:14 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/17 19:06:01 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 12:50:26 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,6 @@
 void	sb(t_node *b)
 {
 	sa(b);
+	ft_printf("sb");
+	return ;
 }

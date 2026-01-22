@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/20 19:14:13 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 12:46:42 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,29 @@ int	main(int ac, char **av)
 {
 	t_node	a;
 	t_node	b;
-
-	ft_bzero(&a, sizeof(t_node));
-	ft_bzero(&b, sizeof(t_node));
-	if (check_input(ac, av, &a))
+	t_stacks	stacks;
+	
+	stack.head_a = a;
+	stack.head_b = b;
+	if (check_input(ac, av, &stacks.a))
 		return (1);
-	if (check_doubles(&a))
+	if (check_doubles(&stacks.a))
 		return (supprimer les stack car impossible);
-	if (sort_node(&a, &b))
+	if (sort_node(&stacks))
 		return (1);
 	return (0);
 }
 
-int	sort_node(t_node *a, t_node *b)
+int	sort_node(t_stacks * stacks)
 {
-	int	node_left;
+	if(check_stack_order())//checker si c'est déjà dans l'ordre
 
-	node_left = stack_size(a);
-	if()//checker si c'est déjà dans l'ordre
-	if (node_left > 3)
-		{
-			pa(a, b);
-			pa(a, b);
-		}
-	while (stack_size(a) != 3)
+	while (check_stack_order(stacks->head_a))
 	{
 		//fonction qui trouve le min et max
 		//il doit stocker sa qqpart
-
-		
-		//calculer le cost de chaque move$
-		//
+		push_a_to_b(stacks);
+		push_b_to_a(stacks);
 	}
 	
 }

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:24:05 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/17 19:06:59 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 12:49:05 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,6 @@
 void	rrb(t_node *a)
 {
 	rra(a);
+	ft_printf("rrb");
+	return ;
 }

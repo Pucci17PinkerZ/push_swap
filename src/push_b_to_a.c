@@ -6,9 +6,13 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/21 17:29:42 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 12:42:59 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+push_b_to_a(t_stacks *stacks)
+{
+	
+}

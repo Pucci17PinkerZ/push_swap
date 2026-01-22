@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/21 17:55:42 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 12:31:59 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ typedef struct s_node
 	struct s_node *prev;
 	struct s_node *target;
 }	t_node;
+
+typedef struct s_stack
+{
+	t_node	head_a;
+	t_node	head_b;
+	t_node	cheapest;
+	int	min;
+	int	max;
+	
+}	t_stack;
 
 //fonction de swap
 void	sa(t_node *a);

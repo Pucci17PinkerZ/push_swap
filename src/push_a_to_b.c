@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:14:57 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/21 18:02:25 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 12:29:08 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,12 @@ t_node	*find_target_b(t_node *b, int nbr)
 		if (nbr > tmp_target->nbr)
 		{
 			if (!target)
-			    target = tmp_target;
+				target = tmp_target;
 			else if (tmp_target->nbr > target->nbr)
-			    target = tmp_target
+				
+				target = tmp_target;
 		}
+		//changement de struct
 	}
+	if ()
 }

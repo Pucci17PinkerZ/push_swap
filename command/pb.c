@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:23:50 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/17 19:13:21 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/22 12:48:02 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ void	pb(t_node *b, t_node *a)
 	b->next = a;
 	a = b;
 	b = new_top_b;
+	ft_printf("pb");
+	return ;
 }
