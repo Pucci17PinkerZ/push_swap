@@ -32,9 +32,19 @@ void	push_a_to_b(t_stacks *stacks)
 	sort_three();
 }
 
-void	push_to_top(t_stacks *stacks)
+void	push_to_top_b(t_stacks *stacks)
 {
-	
+	if (target->pos == 1)
+		return ;
+	while (target->pos != 1)
+	{
+		median = stacks->stack_size / 2;
+		if (target->pos <= median)
+			rb(stacks->head_b)
+		else
+			rrb(stacks->head_b);
+
+	}
 }
 
 void	push_cost(t_stacks *stacks)
