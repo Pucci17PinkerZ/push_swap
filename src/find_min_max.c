@@ -6,13 +6,13 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:36:13 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/23 12:09:48 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 14:15:10 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	find_min_max(t_stacks *stacks)
+void	find_min_max(t_stacks *stacks)//verifier si il n'y pas de appel en trop
 {
 	stacks->min_a = find_min(stacks->head_a);
 	stacks->max_a = find_max(stacks->head_a);

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:14:57 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/23 12:29:25 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 13:30:15 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,6 @@ void	push_to_top_b(t_node *head_b, t_node *target, int stack_size)
 	return ;
 }
 
-void	push_cost(t_stacks *stacks)
-{
-	t_node	*next_node;
-
-	next_node = stacks->head_a;
-	while (next_node->next)
-	{
-		
-		next_node = next_node->next;
-	}
-}
-
 void	find_all_target(t_stacks *stacks)
 {
 	t_node	*next_node;
@@ -66,7 +54,7 @@ void	find_all_target(t_stacks *stacks)
 	while (next_node->next)
 	{
 		next_node->target = find_target_b(stacks->head_b,
-				next_node->nbr, stacks->max_a);
+				next_node->nbr, stacks->max_b);
 		next_node = next_node->next;
 	}
 	return ;
@@ -81,11 +69,11 @@ t_node	*find_target_b(t_node *b, int nbr, t_node *max_a)
 	target = NULL;
 	while (actual_smaller->next)
 	{
-		if (nbr < actual_smaller->nbr)
+		if (nbr > actual_smaller->nbr)
 		{
 			if (!target)
 				target = actual_smaller;
-			else if (actual_smaller->nbr > target->nbr)
+			else if (actual_smaller->nbr < target->nbr)
 				target = actual_smaller;
 		}
 		actual_smaller = actual_smaller->next;

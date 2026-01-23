@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/23 12:16:28 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 14:47:50 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	node_position(t_node *a)
 	t_node	*tmp;
 
 	tmp = a;
-	tmp->pos = 1;
+	tmp->pos = 0;
 	while (tmp->next)
 	{
 		next_node = tmp->next;
