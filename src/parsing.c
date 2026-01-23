@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/19 13:53:53 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 12:07:52 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	check_nbr(char *arg)
 	j = 0;
 	while (arg[j])
 	{
-		if(!(ft_isdigit(arg[j]) || arg[j] == '-'))//checker comment faire pour "--"
+		if (!(ft_isdigit(arg[j]) || arg[j] == '-'))//checker comment faire pour "--"
 			return (1);
 		j++;
 	}

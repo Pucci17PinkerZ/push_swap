@@ -6,28 +6,28 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/22 18:47:04 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 12:10:29 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-#include "libft/libft.h"
-#include "ft_printf/ft_printf.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_node
 {
-	int	nbr;
-	int	cost;
-	int pos;
-	struct s_node *next;
-	struct s_node *prev;
-	struct s_node *target;
+	int				nbr;
+	int				cost;
+	int				pos;
+	struct s_node	*next;
+	struct s_node	*prev;
+	struct s_node	*target;
 }	t_node;
 
 typedef struct s_stack

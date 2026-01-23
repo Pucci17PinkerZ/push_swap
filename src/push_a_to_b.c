@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:14:57 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/22 19:56:15 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 12:08:43 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,8 @@ void	push_to_top_b(t_stacks *stacks)
 			rb(stacks->head_b)
 		else
 			rrb(stacks->head_b);
-
 	}
-}
+>}
 
 void	push_cost(t_stacks *stacks)
 {
@@ -62,7 +61,7 @@ void	push_cost(t_stacks *stacks)
 void	find_all_target(t_stacks *stacks)
 {
 	t_node	*next_node;
-	
+
 	next_node = stacks->head_a;
 	while (next_node->next)
 	{
