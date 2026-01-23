@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:14:57 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/23 12:08:43 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 12:29:25 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	push_a_to_b(t_stacks *stacks)
 {
-	pb(a, b);
-	pb(a, b);
+	pb(stacks->head_a, stacks->head_b);
+	pb(stacks->head_a, stacks->head_b);
 	node_position(a);
 	node_position(b);
 	while (stack_size(a) != 3)
@@ -24,27 +24,27 @@ void	push_a_to_b(t_stacks *stacks)
 		node_position(b);
 		find_min_max(stacks);
 		find_all_target(stacks);
-		//push_cost(stacks);//not done too//only for B to A
-		// find_cheapest();//not done
-		push_to_top(stacks);
-		do_push();//not done
+		stacks->b_len = stack_size(stacks->head_b);
+		push_to_top_b(stacks->head_b, stacks->head_a->target, stacks->b_len);
+		pb(stacks->head_a, stacks->head_b);
 	}
-	sort_three();
+	sort_three(stacks->head_a);
 }
 
-void	push_to_top_b(t_stacks *stacks)
+void	push_to_top_b(t_node *head_b, t_node *target, int stack_size)
 {
-	if (target->pos == 1)
-		return ;
+	int	median;
+
 	while (target->pos != 1)
 	{
-		median = stacks->stack_size / 2;
+		median = stack_size / 2;
 		if (target->pos <= median)
-			rb(stacks->head_b)
+			rb(stacks->head_b);
 		else
 			rrb(stacks->head_b);
 	}
->}
+	return ;
+}
 
 void	push_cost(t_stacks *stacks)
 {
@@ -79,7 +79,7 @@ t_node	*find_target_b(t_node *b, int nbr, t_node *max_a)
 
 	actual_smaller = b;
 	target = NULL;
-	while(actual_smaller->next)
+	while (actual_smaller->next)
 	{
 		if (nbr < actual_smaller->nbr)
 		{

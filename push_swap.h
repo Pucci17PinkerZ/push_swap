@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/23 12:10:29 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 12:24:56 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_node
 	struct s_node	*target;
 }	t_node;
 
-typedef struct s_stack
+typedef struct s_stacks
 {
 	t_node	*head_a;
 	t_node	*head_b;
@@ -42,7 +42,7 @@ typedef struct s_stack
 	int		a_len;
 	int		b_len;
 
-}	t_stack;
+}	t_stacks;
 
 //fonction de swap
 void	sa(t_node *a);

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/23 12:07:42 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 12:31:15 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	main(int ac, char **av)
 	stack.head_a = &a;
 	stack.head_b = &b;
 	if (check_input(ac, av, &stacks.a))
-		return (clean_exit(&stacks), perror("check_input"), 1);
+		return (clean_exit(&stacks), 1);
 	if (check_doubles(&stacks.a))
-		return (clean_exit(&stacks), perror("check_doubles"), 1);
+		return (clean_exit(&stacks), 1);
 	if (sort_node(&stacks))
-		return (clean_exit(&stacks), perror("sort_nodes"), 1);
+		return (clean_exit(&stacks) 1);
 	return (0);
 }
 

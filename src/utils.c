@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/23 12:09:21 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 12:16:28 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 
-void	sort_three(t_node *a) //pas certain des conditions ici
+void	sort_three(t_node *a)
 {
 	int	num1;
 	int	num2;
