@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/23 13:29:12 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 15:34:11 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_stacks
 {
 	t_node	*head_a;
 	t_node	*head_b;
-	t_node	cheapest;
+	t_node	*cheapest;
 	t_node	*min_a;
 	t_node	*max_a;//in use?
 	t_node	*min_b;//in use?
