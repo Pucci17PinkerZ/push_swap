@@ -13,6 +13,8 @@ src/utils.c\
 src/parsing.c\
 src/find_min_max.c\
 src/clean_exit.c\
+src/push_cost.c\
+src/find_target.c\
 command/sa.c \
 command/sb.c \
 command/ss.c \
