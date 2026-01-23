@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:14:57 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/23 15:24:46 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 17:10:21 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	push_to_top_b(t_node *head_b, t_node *target, int stack_size)
 
 	while (target->pos != 1)
 	{
-		median = stack_size / 2;
+		median = find_median(stack_size);
 		if (target->pos <= median)
 			rb(stacks->head_b);
 		else
@@ -46,3 +46,8 @@ void	push_to_top_b(t_node *head_b, t_node *target, int stack_size)
 	return ;
 }
 
+int	find_median(int stack_size)
+{
+	median = stack_size / 2;
+	return (median);
+}

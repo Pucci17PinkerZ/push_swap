@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/23 16:57:01 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 17:12:07 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ void	do_push(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks)
 }
 
 
-void	push_to_top(t_stacks *stacks, t_node *cheapest, t_node *target)
+void	push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target)
 {
 	t_node	*bigger;
 	t_node	*smaller;
 
 	target = cheapest->target;
-	if (cheapest->pos > target->pos)
+	if (cheapest->pos >= target->pos)
 	{
 		bigger = cheapest;
 		smaller = target;
@@ -89,4 +89,17 @@ void	push_to_top(t_stacks *stacks, t_node *cheapest, t_node *target)
 		do_push(bigger, smaller, 'a', stacks);
 	}
 	return ;
+}
+
+void	push_bottom_bottom()
+
+void	push_bottom_top()
+
+void	push_top_bottom()
+
+void	push_up_or_down();
+{
+	int	median;
+
+	median = find_median();
 }

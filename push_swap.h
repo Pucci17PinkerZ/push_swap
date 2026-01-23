@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/23 15:34:11 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/23 17:10:57 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ t_node	*find_node_c(t_node *a);
 void	clean_exit(t_stacks *stacks);
 void	clean_a(t_node *a);
 void	clean_b(t_node *b);
-//fonction de tri
+//utils
+int		find_median(int stack_size);
 
 //autre fonctions
 int		check_input(int ac, char **av, t_node *a);
