@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/25 16:04:30 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/25 19:13:39 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	main(int ac, char **av)
 	t_node		b;
 	t_stacks	stacks;
 
-	stack.head_a = &a;
-	stack.head_b = &b;
+	stacks.head_a = &a;
+	stacks.head_b = &b;
 	if (check_input(ac, av, &stacks.a))
 		return (clean_exit(&stacks), 1);
 	if (check_doubles(&stacks.a))
