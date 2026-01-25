@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/25 19:19:16 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/25 19:36:33 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	push_top_or_bottom(t_stacks *stacks, t_node *cheapest, t_node *target)
 	else if (target->pos > median_a_is && cheapest->pos > median_b_is)
 		push_bottom_bottom(stacks, cheapest, target);
 	else if (target->pos > median_a_is && cheapest->pos <= median_b_is)
-		push_bottom_top(stacks, cheapest, target);
+		push_bottom_top(stacks, cheapest, 'a', target);
 	else
-		push_top_bottom(stacks, cheapest, target);
+		push_bottom_top(stacks, cheapest, 'b', target);
 }
 
 void	push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target)
@@ -153,17 +153,17 @@ void	push_bottom_top(t_stacks *stacks, t_node *cheapest, char letter, t_node *ta
 	t_node	*bigger;
 	t_node	*smaller;
 
-	if (cheapest->pos >= target->pos)
+	if (letter == 'b')
 	{
 		bigger = target;
 		smaller = cheapest;
-		do_push_bottom_top(bigger, smaller, 'b', stacks);
+		do_push_bottom_top(bigger, smaller, letter, stacks);
 	}
 	else
 	{
 		bigger = cheapest;
 		smaller = target;
-		do_push_bottom_top(bigger, smaller, 'a', stacks);
+		do_push_bottom_top(bigger, smaller, letter, stacks);
 	}
 	return ;
 }
@@ -174,7 +174,7 @@ do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks)
 	i = 0;
 	while (i < index_1)
 	{
-		if (letter == a)
+		if (letter == 'a')
 			rra(stacks->head_a);
 		else
 			rrb(stacks->head_b);
@@ -183,13 +183,15 @@ do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks)
 	i = 0;
 	while (i < index_2)
 	{
-		if (letter == a)
+		if (letter == 'a')
 			rb(stacks->head_b);
 		else
 			ra(stacks->head_a);
 		i++;
 	}
+	return ;
 }
+
 void	do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks)
 {
 
@@ -210,9 +212,4 @@ void	do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks *
 		do_push_bottom_top2(index_1,index_2, letter, stacks));
 	}
 	return ;
-}
-
-void	push_top_bottom(t_stacks *stacks, t_node *cheapest, t_node *target)
-{
-	
 }
