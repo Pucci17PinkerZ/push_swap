@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/23 12:31:15 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/25 16:04:30 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	sort_node(t_stacks * stacks)
 		push_b_to_a(stacks);
 	}
 }
-
 
 int	is_node_sorted(t_node *a)
 {

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/25 14:14:50 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/25 17:20:35 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,20 @@ void	push_top_or_bottom(t_stacks *stacks, t_node *cheapest, t_node *target)
 {
 	int	*median_a_is;
 	int	*median_b_is;
-	
+
 	median_a_is = find_median(stacks->a_len);
 	median_b_is = find_median(stacks->b_len);
 	target = cheapest->target;//check if useless
-	if (cheapest->pos <= median_a_is && target->pos <= median_b_is)
+	if (cheapest->pos == 0 && target->pos == 0)
+		return ;
+	if (target->pos <= median_a_is && cheapest->pos <= median_b_is)
 		push_top_top(stacks, cheapest, target);
-	else if (cheapest->pos > median_a_is && target->pos > median_b_is)
+	else if (target->pos > median_a_is && cheapest->pos > median_b_is)
 		push_bottom_bottom(stacks, cheapest, target);
-	else if (cheapest->pos <= median_a_is && target->pos > median_b_is)
-		push_bottom_top();
+	else if (target->pos > median_a_is && cheapest->pos <= median_b_is)
+		push_bottom_top(stacks, cheapest, target);
 	else
-		push_top_bottom();
+		push_top_bottom(stacks, cheapest, target);
 }
 
 void	push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target)
@@ -97,32 +99,48 @@ void	push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target)
 	{
 		bigger = cheapest;
 		smaller = target;
-		do_push_bottom_bottom(bigger, smaller, 'b', stacks);
+		do_push_bottom_bottom_b(bigger, smaller, stacks);
 	}
 	else
 	{
 		bigger = target;
 		smaller = cheapest;
-		do_push_bottom_bottom(bigger, smaller, 'a', stacks);
+		do_push_bottom_bottom_a(bigger, smaller, stacks);
 	}
 	return ;
 }
 
-void	do_push_bottom_bottom(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks)
+void	do_push_bottom_bottom_a(t_node *bigger, t_node *smaller, t_stacks *stacks)
 {
 	int	i;
 
 	i = 0;
-	while (i < (bigger->pos - smaller->pos))
+while (i < ((stacks->a_len - bigger->pos) - (stacks->a_len - smaller->pos)))
 	{
-		if (letter == 'a')
-			rra(stacks->head_a);
-		else
-			rrb(stacks->head_b);
+		rra(stacks->head_a);
 		i++;
 	}
 	i = -1;
-	while (i < smaller->pos)
+	while (i < (stacks->a_len - smaller->pos))
+	{
+		rrr(stacks->head_a, stacks->head_b);
+		i++;
+	}
+	return ;
+}
+
+void	do_push_bottom_bottom_b(t_node *bigger, t_node *smaller, t_stacks *stacks)
+{
+	int	i;
+
+	i = 0;
+	while (i < ((stacks->b_len - bigger->pos) - (stacks->b_len - smaller->pos)))
+	{
+		rrb(stacks->head_b);
+		i++;
+	}
+	i = -1;
+	while (i < (stacks->b_len - smaller->pos))
 	{
 		rrr(stacks->head_a, stacks->head_b);
 		i++;

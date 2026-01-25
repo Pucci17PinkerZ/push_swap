@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/23 14:47:50 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/25 16:13:03 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,13 @@ int	stack_size(t_node *node)
 	t_node	*next_node;
 	int		i;
 
-	i = 0;
+	i = 1;
+	if (!node)
+		return (0);
 	next_node = node->next;
-	while (next_node->next)
+	if (next_node == NULL)
+		return (i);
+	while (next_node)
 	{
 		next_node = next_node->next;
 		i++;
