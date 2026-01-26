@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/26 11:14:24 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 12:45:05 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ void	push_b_to_a(t_stacks *stacks)
 }
 void	final_sort(t_stacks *stacks)
 {
-	find_min_max(stacks);
+	find_min_max(stacks);//pas dans le .h
 	
 }
+
 void	push_top_or_bottom(t_stacks *stacks, t_node *cheapest, t_node *target)
 {
 	int	*median_a_is;
@@ -173,7 +174,7 @@ void	push_bottom_top(t_stacks *stacks, t_node *cheapest, char letter, t_node *ta
 	}
 	return ;
 }
-do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks)
+void	do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks)
 {
 		int	i;
 
