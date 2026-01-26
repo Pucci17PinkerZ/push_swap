@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:09:48 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/26 14:15:07 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 15:09:20 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	clean_a(t_node *a)
 {
 	t_node	*tmp;
 
-	if (!a)
+	if (!a || a == NULL)
 		return ;
-	tmp = a->next;
-	while (tmp->next)
+	tmp = a;
+	while (tmp)
 	{
 		free(a);
 		a = tmp;
@@ -38,10 +38,10 @@ void	clean_b(t_node *b)
 {
 	t_node	*tmp;
 
-	if (!b)
+	if (!b || b == NULL)
 		return ;
-	tmp = b->next;
-	while (tmp->next)
+	tmp = b;
+	while (tmp)
 	{
 		free(b);
 		b = tmp;
