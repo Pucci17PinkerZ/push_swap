@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:09:48 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/23 12:09:30 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 11:46:16 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,12 @@ void	clean_b(t_node *b)
 		tmp = b->next;
 	}
 	return ;
+}
+
+void	free_tab(char **tab, int j)
+{
+	j = ft_strlen(tab);
+	while (j > 0)
+		free(tab[--j]);
+	free(tab);
 }

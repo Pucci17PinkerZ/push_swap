@@ -6,13 +6,13 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/25 19:36:33 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 11:14:24 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-push_b_to_a(t_stacks *stacks)
+void	push_b_to_a(t_stacks *stacks)
 {
 	node_position(a)
 	node_position(b);
@@ -25,8 +25,14 @@ push_b_to_a(t_stacks *stacks)
 		push_top_or_bottom(stacks, stacks->cheapest, NULL);
 		pa(stacks->head_a, stacks->head_b);
 	}
+	final_sort(stacks);
+	return ;
 }
-
+void	final_sort(t_stacks *stacks)
+{
+	find_min_max(stacks);
+	
+}
 void	push_top_or_bottom(t_stacks *stacks, t_node *cheapest, t_node *target)
 {
 	int	*median_a_is;

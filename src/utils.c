@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/25 16:13:03 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 11:53:11 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,6 @@ int	check_stack_order(t_node *a)
 	}
 	//ici une fonction pour clear les nodes//atteint cette ligne
 	return (1);
-}
-
-int	check_doubles()
-{
-	
 }
 
 void	node_position(t_node *a)

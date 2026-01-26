@@ -6,13 +6,13 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/23 12:07:52 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 12:13:18 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_input(int ac, char **av, t_node *a)
+int	check_input(int ac, char **av, t_node *a, t_stacks *stacks)
 {
 	char **arg_list;
 
@@ -22,7 +22,7 @@ int	check_input(int ac, char **av, t_node *a)
 	if (!arg_list)
 		return (1);
 	if (check_args(arg_list, a))
-		return (1);
+		return (free_tab(arg_list), clean_exit(stacks) 1);
 
 
 	return (0);
@@ -38,15 +38,37 @@ int	check_args(char **arg_list, t_node *a)
 	while (arg_list[i])
 	{
 		if (check_nbr(arg_list[i]))
-			return (1);
+			return ( 1);
 		nbr = ft_atoi(arg_list[i]);
 		//check si atoi échoue
 		set_node(a, nbr);
+		check_doubles();
+		//check_max_range();
 		i++;
 	}
 	return (0);
 }
-
+int	check_doubles(t_stacks *stacks)
+{
+	t_node	*checked_node;
+	t_node	*head_check;
+	
+	if (!stacks || !stacks->head_a->next)
+		return (0);
+	head_check = stacks->head_a;
+	while(head_check)
+	{
+		checked_node = head_check->next;
+		while (checked_node)
+		{
+			if (head_check->nbr == checked_node->nbr)
+				return (1);
+			checked_node = checked_node->next;
+		}
+		head_check = head_check->next;
+	}
+	return (0);
+}
 int	check_nbr(char *arg)
 {
 	int	j;
@@ -71,7 +93,7 @@ int	set_node(t_node *a, int nbr)
 	if (a->next == NULL)
 	{
 		a->nbr = nbr;
-		a->pos = 1;
+		a->pos = 0;
 	}
 	else
 	{
