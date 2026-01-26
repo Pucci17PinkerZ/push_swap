@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/26 14:47:47 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 16:33:21 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int			bigger_pos(int node_a_pos, int node_b_pos);
 /* ==========================Parsing==========================================*/
 /* ========================================================================== */
 t_node		*last_node(t_node *a);
-int			check_input(char **av, t_node *a, t_stacks *stacks);
+int			check_input(char **av, t_stacks *stacks);
 int			check_args(char **arg_list, t_node *a, t_stacks *stacks);
 int			check_doubles(t_stacks *stacks);
 int			check_nbr(char *arg);

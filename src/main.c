@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/26 15:26:59 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 16:42:59 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	ft_bzero(&stacks, sizeof(t_stacks));
 	if (ac < 2)
 		return (1);
-	if (check_input(av, stacks.head_a, &stacks))
+	if (check_input(av, &stacks))
 		return (clean_exit(&stacks), 1);
 	sort_node(&stacks);
 	clean_exit(&stacks);
@@ -28,7 +28,8 @@ int	main(int ac, char **av)
 
 void	sort_node(t_stacks *stacks)
 {
-	if (check_stack_order(stacks->head_a))//checker si c'est déjà dans l'ordre
+	ft_printf("valeur de la head == %d", stacks->head_a->nbr);
+	if (check_stack_order(stacks->head_a))
 		return ;
 	while (check_stack_order(stacks->head_a))
 	{

@@ -6,13 +6,13 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/26 15:27:41 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 16:33:39 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_input(char **av, t_node *a, t_stacks *stacks)
+int	check_input(char **av, t_stacks *stacks)
 {
 	char	**arg_list;
 
@@ -20,7 +20,7 @@ int	check_input(char **av, t_node *a, t_stacks *stacks)
 	arg_list = ft_split(av[1], ' ');
 	if (!arg_list)
 		return (1);
-	if (check_args(arg_list, a, stacks))
+	if (check_args(arg_list, stacks->head_a, stacks))
 		return (free_tab(arg_list, 0), clean_exit(stacks), 1);
 	return (0);
 }
@@ -41,7 +41,6 @@ int	check_args(char **arg_list, t_node *a, t_stacks *stacks)
 			return (ft_printf("Error\n"), 1);
 		set_node(a, (int)nbr);
 		check_doubles(stacks);
-		//check_max_range();
 		i++;
 	}
 	return (0);
@@ -79,8 +78,6 @@ int	check_doubles(t_stacks *stacks)
 	t_node	*checked_node;
 	t_node	*head_check;
 
-	if (!stacks || !stacks->head_a->next)
-		return (0);
 	head_check = stacks->head_a;
 	while (head_check)
 	{
@@ -120,6 +117,8 @@ int	set_node(t_node *a, int nbr)
 	if (a == NULL)
 	{
 		a = malloc(sizeof(t_node));
+		if (!a)
+			return (1);
 		a->nbr = nbr;
 		a->pos = 0;
 	}
