@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/26 11:53:11 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 13:50:12 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	stack_size(t_node *node)
 
 int	check_stack_order(t_node *a)
 {
-	t_node	*node
+	t_node	*node;
 	int		num;
 	int		i;
 

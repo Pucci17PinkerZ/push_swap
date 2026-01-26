@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:36:13 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/23 14:15:10 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 13:57:46 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_node	*find_max(t_node *head)
 	t_node	*new_max;
 	t_node	*nbr;
 
-	new_min = head;
+	new_max = head;
 	nbr = head->next;
 	while (nbr->next)
 	{

@@ -15,6 +15,8 @@ src/find_min_max.c\
 src/clean_exit.c\
 src/push_cost.c\
 src/find_target.c\
+src/push_b_to_a.c\
+src/push_a_to_b.c\
 command/sa.c \
 command/sb.c \
 command/ss.c \

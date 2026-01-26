@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:23:36 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/25 13:58:48 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 14:03:38 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ t_node	*find_target_a(t_node *b, int nbr, t_node *min_a)
 t_node	*find_cheapest(t_stacks *stacks)
 {
 	t_node	*cheapest;
-	t_node	*next_node
+	t_node	*next_node;
 	
 	cheapest = stacks->head_b;
 	if (stacks->head_b->next == NULL)

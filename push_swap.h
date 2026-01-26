@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/26 13:01:26 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 14:09:31 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,73 +47,74 @@ typedef struct s_stacks
 /* ========================================================================== */
 /* ==========================Basic swap fonction==============================*/
 /* ========================================================================== */
-void	sa(t_node *a);
-void	sb(t_node *a);
-void	ss(t_node *a, t_node *b);
-void	ra(t_node *a);
-void	rb(t_node *a);
-void	rr(t_node *a, t_node *b);
-void	rra(t_node *a);
-void	rrb(t_node *a);
-void	rrr(t_node *a, t_node *b);
-void	pa(t_node *a, t_node *b);
-void	pb(t_node *a, t_node *b);
-
+void		sa(t_node *a);
+void		sb(t_node *a);
+void		ss(t_node *a, t_node *b);
+void		ra(t_node *a);
+void		rb(t_node *a);
+void		rr(t_node *a, t_node *b);
+void		rra(t_node *a);
+void		rrb(t_node *a);
+void		rrr(t_node *a, t_node *b);
+void		pa(t_node *a, t_node *b);
+void		pb(t_node *a, t_node *b);
 /* ========================================================================== */
 /* ==========================Action ==========================================*/
 /* ========================================================================== */
-void	sort_three(t_node *a);
-void	push_top_or_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);
-void	push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
-void	do_push_top_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
-void	push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);
-void	do_push_bottom_bottom_a(t_node *bigger, t_node *smaller, t_stacks *stacks);
-void	do_push_bottom_bottom_b(t_node *bigger, t_node *smaller, t_stacks *stacks);
-void	push_bottom_top(t_stacks *stacks, t_node *cheapest, char letter, t_node *target);
-void	do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks);
-void	do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
-void	push_a_to_b(t_stacks *stacks);
-void	push_b_to_a(t_stacks *stacks);
-void	node_position(t_node *a);
-void	push_to_top_b(t_node *head_b, t_node *target, int stack_size);
-int		sort_node(t_node *a, t_node *b);
+void		sort_three(t_node *a);
+void		push_top_or_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);
+void		push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
+void		do_push_top_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
+void		push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);
+void		do_push_bottom_bottom_a(t_node *bigger, t_node *smaller, t_stacks *stacks);
+void		do_push_bottom_bottom_b(t_node *bigger, t_node *smaller, t_stacks *stacks);
+void		push_bottom_top(t_stacks *stacks, t_node *cheapest, char letter, t_node *target);
+void		do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks);
+void		do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
+void		push_a_to_b(t_stacks *stacks);
+void		push_b_to_a(t_stacks *stacks);
+void		node_position(t_node *a);
+void		push_to_top_b(t_node *head_b, t_node *target, int stack_size);
+void		sort_node(t_stacks * stacks);
+void		final_sort(t_stacks *stacks);
 /* ========================================================================== */
 /* ==========================Analysis=========================================*/
 /* ========================================================================== */
-t_node	*find_target_b(t_node *b, int nbr, t_node *max_a);
-t_node	*find_target_a(t_node *b, int nbr, t_node *min_a);
-t_node	*find_cheapest(t_stacks *stacks);
-t_node	*find_node_c(t_node *a);
-void	find_all_target(t_stacks *stacks);
-void	find_all_target_2(t_stacks *stacks);
-void	all_push_cost(t_stacks *stacks);
-int		push_cost(t_node *node_b, t_node *target, int a_len, int b_len);
-int		is_node_sorted(t_node *a);
-int		check_stack_order(t_node *a);
+t_node		*find_target_b(t_node *b, int nbr, t_node *max_a);
+t_node		*find_target_a(t_node *b, int nbr, t_node *min_a);
+t_node		*find_cheapest(t_stacks *stacks);
+t_node		*find_node_c(t_node *a);
+void		find_all_target(t_stacks *stacks);
+void		find_all_target_2(t_stacks *stacks);
+void		all_push_cost(t_stacks *stacks);
+int			push_cost(t_node *node_b, t_node *target, int a_len, int b_len);
+int			is_node_sorted(t_node *a);
+int			check_stack_order(t_node *a);
 /* ========================================================================== */
 /* ==========================Clean============================================*/
 /* ========================================================================== */
-void	clean_exit(t_stacks *stacks);
-void	clean_a(t_node *a);
-void	clean_b(t_node *b);
-void	free_tab(char **tab, int j);
+void		clean_exit(t_stacks *stacks);
+void		clean_a(t_node *a);
+void		clean_b(t_node *b);
+void		free_tab(char **tab, int j);
 /* ========================================================================== */
 /* ==========================Utils============================================*/
 /* ========================================================================== */
-t_node	*find_min(t_node *head);
-t_node	*find_max(t_node *head);
-void	find_min_max(t_stacks *stacks);
-int		find_median(int stack_size);
-int		stack_size(t_node *node);
-int		bigger_pos(int node_a_pos, int node_b_pos);
+t_node		*find_min(t_node *head);
+t_node		*find_max(t_node *head);
+void		find_min_max(t_stacks *stacks);
+long long	ft_atoll(const char *nptr);
+int			find_median(int stack_size);
+int			stack_size(t_node *node);
+int			bigger_pos(int node_a_pos, int node_b_pos);
 /* ========================================================================== */
 /* ==========================Parsing==========================================*/
 /* ========================================================================== */
-t_node	*last_node(t_node *a);
-int		check_input(int ac, char **av, t_node *a);
-int		check_args(char **arg_list, t_node *a);
-int		check_doubles(t_stacks *stacks);
-int		check_nbr(char *arg);
-int		set_node(t_node *a, int nbr);
+t_node		*last_node(t_node *a);
+int			check_input(int ac, char **av, t_node *a, t_stacks *stacks);
+int			check_args(char **arg_list, t_node *a, t_stacks *stacks);
+int			check_doubles(t_stacks *stacks);
+int			check_nbr(char *arg);
+int			set_node(t_node *a, int nbr);
 
 #endif
