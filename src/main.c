@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/26 14:05:59 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 14:15:39 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-void	sort_node(t_stacks * stacks)
+void	sort_node(t_stacks *stacks)
 {
 	if (check_stack_order(stacks->head_a))//checker si c'est déjà dans l'ordre
 		return ;

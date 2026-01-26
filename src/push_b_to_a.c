@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/26 14:10:41 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 14:19:22 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ void	push_b_to_a(t_stacks *stacks)
 	final_sort(stacks);
 	return ;
 }
+
 void	final_sort(t_stacks *stacks)
 {
 	t_node	*node_on_top;
 	int		median;
-	
+
 	node_on_top = find_min(stacks->head_a);
 	while (node_on_top->pos != 0)
 	{
@@ -86,7 +87,8 @@ void	push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target)
 	return ;
 }
 
-void	do_push_top_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks)
+void	do_push_top_top(t_node *bigger,
+	t_node *smaller, char letter, t_stacks *stacks)
 {
 	int	i;
 
@@ -108,7 +110,8 @@ void	do_push_top_top(t_node *bigger, t_node *smaller, char letter, t_stacks *sta
 	return ;
 }
 
-void	push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target)
+void	push_bottom_bottom(t_stacks *stacks,
+		t_node *cheapest, t_node *target)
 {
 	t_node	*bigger;
 	t_node	*smaller;
@@ -129,7 +132,8 @@ void	push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target)
 	return ;
 }
 
-void	do_push_bottom_bottom_a(t_node *bigger, t_node *smaller, t_stacks *stacks)
+void	do_push_bottom_bottom_a(t_node *bigger,
+		t_node *smaller, t_stacks *stacks)
 {
 	int	i;
 
@@ -148,7 +152,8 @@ void	do_push_bottom_bottom_a(t_node *bigger, t_node *smaller, t_stacks *stacks)
 	return ;
 }
 
-void	do_push_bottom_bottom_b(t_node *bigger, t_node *smaller, t_stacks *stacks)
+void	do_push_bottom_bottom_b(t_node *bigger,
+		t_node *smaller, t_stacks *stacks)
 {
 	int	i;
 
@@ -167,7 +172,8 @@ void	do_push_bottom_bottom_b(t_node *bigger, t_node *smaller, t_stacks *stacks)
 	return ;
 }
 
-void	push_bottom_top(t_stacks *stacks, t_node *cheapest, char letter, t_node *target)
+void	push_bottom_top(t_stacks *stacks, t_node *cheapest,
+		char letter, t_node *target)
 {
 	t_node	*bigger;
 	t_node	*smaller;
@@ -186,9 +192,10 @@ void	push_bottom_top(t_stacks *stacks, t_node *cheapest, char letter, t_node *ta
 	}
 	return ;
 }
-void	do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks)
+void	do_push_bottom_top2(int index_1,
+		int index_2, char letter, t_stacks *stacks)
 {
-		int	i;
+	int	i;
 
 	i = 0;
 	while (i < index_1)
@@ -211,24 +218,24 @@ void	do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks
 	return ;
 }
 
-void	do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks)
+void	do_push_bottom_top(t_node *bigger,
+		t_node *smaller, char letter, t_stacks *stacks)
 {
 
 	int	index_1;
 	int	index_2;
-	
-	
+
 	if (letter == 'a')
 	{
 		index_1 = stacks->a_len - bigger->pos;
-		index_2 =smaller->pos;
-		do_push_bottom_top2(index_1,index_2, letter, stacks);
+		index_2 = smaller->pos;
+		do_push_bottom_top2(index_1, index_2, letter, stacks);
 	}
 	else
 	{
 		index_1 = stacks->b_len - smaller->pos;
 		index_2 = bigger->pos;
-		do_push_bottom_top2(index_1,index_2, letter, stacks);
+		do_push_bottom_top2(index_1, index_2, letter, stacks);
 	}
 	return ;
 }

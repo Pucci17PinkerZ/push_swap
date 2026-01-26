@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/26 13:55:58 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/26 14:17:10 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_input(int ac, char **av, t_node *a, t_stacks *stacks)
 {
-	char **arg_list;
+	char	**arg_list;
 
 	if (ac != 2)
 		return (1);
@@ -38,7 +38,7 @@ int	check_args(char **arg_list, t_node *a, t_stacks *stacks)
 	while (arg_list[i])
 	{
 		if (check_nbr(arg_list[i]))
-			return ( 1);
+			return (1);
 		nbr = ft_atoll(arg_list[i]);
 		if (nbr > 2147483647 || nbr < -2147483648)
 			return (ft_printf("Error\n"), 1);
@@ -53,7 +53,7 @@ int	check_args(char **arg_list, t_node *a, t_stacks *stacks)
 long long	ft_atoll(const char *nptr)
 {
 	long long	i;
-	long	sign;
+	long		sign;
 	long long	res;
 
 	i = 0;
@@ -81,11 +81,11 @@ int	check_doubles(t_stacks *stacks)
 {
 	t_node	*checked_node;
 	t_node	*head_check;
-	
+
 	if (!stacks || !stacks->head_a->next)
 		return (0);
 	head_check = stacks->head_a;
-	while(head_check)
+	while (head_check)
 	{
 		checked_node = head_check->next;
 		while (checked_node)
@@ -98,6 +98,7 @@ int	check_doubles(t_stacks *stacks)
 	}
 	return (0);
 }
+
 int	check_nbr(char *arg)
 {
 	int	j;
@@ -141,7 +142,7 @@ t_node	*last_node(t_node *a)
 {
 	t_node	*final_node;
 	t_node	*tmp;
-	
+
 	if (!a)
 		return (NULL);
 	tmp = a;
