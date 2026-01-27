@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/27 13:49:06 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/27 15:56:38 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,37 @@ int	check_input(char **av, t_stacks *stacks)
 	char	**arg_list;
 
 
-	arg_list = ft_split(av[1], ' ');
+	arg_list = NULL;
+	arg_list = new_args_list();
 	if (!arg_list)
 		return (1);
 	if (check_args(arg_list, stacks))
 		return (free_tab(arg_list, 0), clean_exit(stacks), 1);
 	return (0);
 }
+
+
+void	new_args_list(char **av, )
+{
+	int	nbr_arg;
+	
+	nbr_arg = 0;
+	nbr_arg = count_args();
+}
+
+int	count_args(char **av, )
+{
+	while(*av)
+	{
+		
+		av++;
+	}
+}
+
+
+
+
+
 
 int	check_args(char **arg_list, t_stacks *stacks)
 {
