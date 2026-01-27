@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/27 13:35:35 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/27 17:48:13 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,8 @@ int			check_args(char **arg_list, t_stacks *stacks);
 int			check_doubles(t_stacks *stacks);
 int			check_nbr(char *arg);
 int			set_node(t_stacks *stacks, int nbr);
+char		**new_args_list(char **av, char **args);
+char		**assign_args(int i, int s, char **av, char	**catcher);
+int			count_args(char **av, int nbr_arg);
 
 #endif
