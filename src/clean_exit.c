@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:09:48 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/26 15:09:20 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/27 12:44:27 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	clean_a(t_node *a)
 	tmp = a;
 	while (tmp)
 	{
+		tmp = tmp->next;
 		free(a);
 		a = tmp;
-		tmp = a->next;
 	}
 	return ;
 }

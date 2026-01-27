@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/26 16:33:39 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/27 12:23:12 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	check_input(char **av, t_stacks *stacks)
 	arg_list = ft_split(av[1], ' ');
 	if (!arg_list)
 		return (1);
-	if (check_args(arg_list, stacks->head_a, stacks))
+	if (check_args(arg_list, stacks))
 		return (free_tab(arg_list, 0), clean_exit(stacks), 1);
 	return (0);
 }
 
-int	check_args(char **arg_list, t_node *a, t_stacks *stacks)
+int	check_args(char **arg_list, t_stacks *stacks)
 {
 	int			i;
 	long long	nbr;
@@ -39,8 +39,10 @@ int	check_args(char **arg_list, t_node *a, t_stacks *stacks)
 		nbr = ft_atoll(arg_list[i]);
 		if (nbr > 2147483647 || nbr < -2147483648)
 			return (ft_printf("Error\n"), 1);
-		set_node(a, (int)nbr);
-		check_doubles(stacks);
+		if (set_node(stacks, (int)nbr))
+			return (1);
+		if (check_doubles(stacks))
+			return (1);
 		i++;
 	}
 	return (0);
@@ -109,22 +111,22 @@ int	check_nbr(char *arg)
 	return (0);
 }
 
-int	set_node(t_node *a, int nbr)
+int	set_node(t_stacks *stacks, int nbr)
 {
 	t_node	*end_node;
 	t_node	*new_node;
 
-	if (a == NULL)
+	if (stacks->head_a == NULL)
 	{
-		a = malloc(sizeof(t_node));
-		if (!a)
+		stacks->head_a = malloc(sizeof(t_node));
+		if (!stacks->head_a)
 			return (1);
-		a->nbr = nbr;
-		a->pos = 0;
+		stacks->head_a->nbr = nbr;
+		stacks->head_a->pos = 0;
 	}
 	else
 	{
-		end_node = last_node(a);
+		end_node = last_node(stacks->head_a);
 		new_node = malloc(sizeof(t_node));
 		if (!new_node)
 			return (1);
@@ -143,10 +145,10 @@ t_node	*last_node(t_node *a)
 	if (!a)
 		return (NULL);
 	tmp = a;
-	while (tmp->next)
+	while (tmp)
 	{
-		final_node = tmp->next;
-		tmp = final_node;
+		final_node = tmp;
+		tmp = tmp->next;
 	}
-	return (tmp);
+	return (final_node);
 }
