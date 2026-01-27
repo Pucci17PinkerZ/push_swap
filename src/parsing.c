@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/27 12:23:12 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/27 13:49:06 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	check_args(char **arg_list, t_stacks *stacks)
 			return (1);
 		nbr = ft_atoll(arg_list[i]);
 		if (nbr > 2147483647 || nbr < -2147483648)
-			return (ft_printf("Error\n"), 1);
+			return (1);
 		if (set_node(stacks, (int)nbr))
 			return (1);
 		if (check_doubles(stacks))
@@ -123,6 +123,7 @@ int	set_node(t_stacks *stacks, int nbr)
 			return (1);
 		stacks->head_a->nbr = nbr;
 		stacks->head_a->pos = 0;
+		stacks->head_a->next = NULL;
 	}
 	else
 	{
@@ -132,6 +133,7 @@ int	set_node(t_stacks *stacks, int nbr)
 			return (1);
 		new_node->nbr = nbr;
 		new_node->pos = end_node->pos + 1;
+		new_node->next = NULL;
 		end_node->next = new_node;
 	}
 	return (0);
