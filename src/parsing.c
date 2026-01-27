@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/27 19:28:19 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/27 20:14:40 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_input(char **av, t_stacks *stacks)
 		return (1);
 	if (check_args(arg_list, stacks))
 		return (free_tab(arg_list, 0), clean_exit(stacks), 1);
-	return (0);
+	return (free_tab(arg_list, 0), 0);
 }
 
 
@@ -101,6 +101,7 @@ int	check_doubles(t_stacks *stacks)
 
 int	check_nbr(char *arg)
 {
+	char	*tmp;
 	int	j;
 
 	j = 0;
@@ -112,6 +113,10 @@ int	check_nbr(char *arg)
 	}
 	if (arg[j - 1] == '-')
 		return (1);
+	tmp = ft_strchr(arg, '-');
+	if (tmp[1] == '-')
+		return (tmp = NULL, 1);
+	tmp = NULL;
 	return (0);
 }
 
