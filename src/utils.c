@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/28 16:22:35 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 17:47:15 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,7 @@ void	show_stack(t_stacks *stacks)
 {
 	t_node *tmp;
 	
-	ft_printf("\n");
-	ft_printf("STACKS A\n");
+	ft_printf("\nSTACKS A\n");
 	if (!stacks->head_a)
 	{
 		ft_printf("Stack vide\n");
@@ -125,4 +124,5 @@ void	show_stack(t_stacks *stacks)
 		ft_printf("node %d  / valeur %d\n", tmp->pos, tmp->nbr);
 		tmp = tmp->next;
 	}
+	ft_printf("\n");
 }
