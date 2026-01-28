@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:09:48 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/27 18:15:50 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 11:11:45 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	clean_b(t_node *b)
 
 void	free_tab(char **tab, int j)
 {
-	printf("char tab vaut %p\n", tab);
 	if (!tab || !tab[j])
 		return ;
 	while (tab[j])
