@@ -6,16 +6,16 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:24:08 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/22 20:02:58 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 14:26:51 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rrr(t_node *a, t_node *b)
+void	rrr(t_stacks *stacks)
 {
-	rra(a);
-	rrb(b);
+	rra(stacks);
+	rrb(stacks);
 	ft_printf("rrr\n");
 	return ;
 }

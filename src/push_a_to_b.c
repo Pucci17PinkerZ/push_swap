@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:14:57 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/26 14:14:21 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 14:34:59 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	push_a_to_b(t_stacks *stacks)
 {
-	pb(stacks->head_a, stacks->head_b);
-	pb(stacks->head_a, stacks->head_b);
+	
+	pb(stacks);
+	show_stack(stacks);
+	pb(stacks);
 	node_position(stacks->head_a);
 	node_position(stacks->head_b);
 	while (stack_size(stacks->head_a) != 3)
@@ -25,13 +27,13 @@ void	push_a_to_b(t_stacks *stacks)
 		find_min_max(stacks);
 		find_all_target(stacks);
 		stacks->b_len = stack_size(stacks->head_b);
-		push_to_top_b(stacks->head_b, stacks->head_a->target, stacks->b_len);
-		pb(stacks->head_a, stacks->head_b);
+		push_to_top_b(stacks, stacks->head_a->target, stacks->b_len);
+		pb(stacks);
 	}
-	sort_three(stacks->head_a);
+	sort_three(stacks);
 }
 
-void	push_to_top_b(t_node *head_b, t_node *target, int stack_size)
+void	push_to_top_b(t_stacks *stacks, t_node *target, int stack_size)
 {
 	int	median;
 
@@ -39,9 +41,9 @@ void	push_to_top_b(t_node *head_b, t_node *target, int stack_size)
 	{
 		median = find_median(stack_size);
 		if (target->pos <= median)
-			rb(head_b);
+			rb(stacks);
 		else
-			rrb(head_b);
+			rrb(stacks);
 	}
 	return ;
 }

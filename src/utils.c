@@ -6,31 +6,31 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/26 16:42:12 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 14:28:47 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_three(t_node *a)
+void	sort_three(t_stacks *stacks)
 {
 	int	num1;
 	int	num2;
 	int	num3;
 
-	num1 = a->nbr;
-	num2 = a->next->nbr;
-	num3 = a->next->next->nbr;
+	num1 = stacks->head_a->nbr;
+	num2 = stacks->head_a->next->nbr;
+	num3 = stacks->head_a->next->next->nbr;
 	if (num1 < num2 && num2 > num3 && num1 < num3)
-		rra(a);
+		rra(stacks);
 	else if (num1 > num2 && num2 > num3 && num1 > num3)
-		ra(a);
+		ra(stacks);
 	if (num1 > num2 && num2 < num3 && num1 > num3)
-		sa(a);
+		sa(stacks);
 	else if (num1 < num2 && num2 > num3 && num1 > num3)
-		rra(a);
+		rra(stacks);
 	else if (num1 > num2 && num2 < num3 && num1 > num3)
-		ra(a);
+		ra(stacks);
 }
 
 int	stack_size(t_node *node)
@@ -72,18 +72,61 @@ int	check_stack_order(t_node *a)
 	return (1);
 }
 
+// void	node_position(t_node *a)
+// {
+// 	t_node	*next_node;
+// 	t_node	*tmp;
+
+// 	tmp = a;
+// 	tmp->pos = 0;
+// 	while (tmp)
+// 	{
+// 		next_node = tmp->next;
+// 		next_node->pos++;
+// 		tmp = next_node;
+// 	}
+// 	return ;
+// }
+
 void	node_position(t_node *a)
 {
-	t_node	*next_node;
 	t_node	*tmp;
 
 	tmp = a;
 	tmp->pos = 0;
-	while (tmp->next)
+	while (tmp)
 	{
-		next_node = tmp->next;
-		next_node->pos++;
-		tmp = next_node;
+		tmp = tmp->next;
+		tmp->pos++;
 	}
 	return ;
+}
+
+void	show_stack(t_stacks *stacks)
+{
+	t_node *tmp;
+	
+	ft_printf("\n");
+	ft_printf("STACKS A\n");
+	if (!stacks->head_a)
+	{
+		ft_printf("Stack vide\n");
+	}
+	tmp = stacks->head_a;
+	while (tmp)
+	{
+		ft_printf("node %d  / valeur %d\n", tmp->pos, tmp->nbr);
+		tmp = tmp->next;
+	}
+	ft_printf("\nSTACKS B\n");
+	if (!stacks->head_b)
+	{
+		ft_printf("Stack vide\n");
+	}
+	tmp = stacks->head_b;
+	while (tmp)
+	{
+		ft_printf("node %d  / valeur %d\n", tmp->pos, tmp->nbr);
+		tmp = tmp->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/27 17:48:13 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 14:34:40 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,21 @@ typedef struct s_stacks
 /* ========================================================================== */
 /* ==========================Basic swap fonction==============================*/
 /* ========================================================================== */
-void		sa(t_node *a);
-void		sb(t_node *a);
-void		ss(t_node *a, t_node *b);
-void		ra(t_node *a);
-void		rb(t_node *a);
-void		rr(t_node *a, t_node *b);
-void		rra(t_node *a);
-void		rrb(t_node *a);
-void		rrr(t_node *a, t_node *b);
-void		pa(t_node *a, t_node *b);
-void		pb(t_node *a, t_node *b);
+void		sa(t_stacks *stacks);
+void		sb(t_stacks *stacks);
+void		ss(t_stacks *stacks);
+void		ra(t_stacks *stacks);
+void		rb(t_stacks *stacks);
+void		rr(t_stacks *stacks);
+void		rra(t_stacks *stacks);
+void		rrb(t_stacks *stacks);
+void		rrr(t_stacks *stacks);
+void		pa(t_stacks *stacks);
+void		pb(t_stacks *stacks);
 /* ========================================================================== */
 /* ==========================Action ==========================================*/
 /* ========================================================================== */
-void		sort_three(t_node *a);
+void		sort_three(t_stacks *stacks);
 void		push_top_or_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);
 void		push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
 void		do_push_top_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
@@ -74,7 +74,7 @@ void		do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks 
 void		push_a_to_b(t_stacks *stacks);
 void		push_b_to_a(t_stacks *stacks);
 void		node_position(t_node *a);
-void		push_to_top_b(t_node *head_b, t_node *target, int stack_size);
+void		push_to_top_b(t_stacks *stacks, t_node *target, int stack_size);
 void		sort_node(t_stacks * stacks);
 void		final_sort(t_stacks *stacks);
 /* ========================================================================== */
@@ -119,5 +119,11 @@ int			set_node(t_stacks *stacks, int nbr);
 char		**new_args_list(char **av, char **args);
 char		**assign_args(int i, int s, char **av, char	**catcher);
 int			count_args(char **av, int nbr_arg);
+
+
+
+
+///////////ENLEVER A LA FIN
+void	show_stack(t_stacks *stacks);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/26 14:19:22 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 14:31:47 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	push_b_to_a(t_stacks *stacks)
 		all_push_cost(stacks);
 		stacks->cheapest = find_cheapest(stacks);
 		push_top_or_bottom(stacks, stacks->cheapest, NULL);
-		pa(stacks->head_a, stacks->head_b);
+		pa(stacks);
 	}
 	node_position(stacks->head_a);
 	final_sort(stacks);
@@ -40,9 +40,9 @@ void	final_sort(t_stacks *stacks)
 	{
 		median = find_median(stack_size(stacks->head_a));
 		if (node_on_top->pos <= median)
-			ra(stacks->head_a);
+			ra(stacks);
 		else
-			rra(stacks->head_a);
+			rra(stacks);
 	}
 	return ;
 }
@@ -96,15 +96,15 @@ void	do_push_top_top(t_node *bigger,
 	while (i < (bigger->pos - smaller->pos))
 	{
 		if (letter == 'a')
-			ra(stacks->head_a);
+			ra(stacks);
 		else
-			rb(stacks->head_b);
+			rb(stacks);
 		i++;
 	}
 	i = 0;
 	while (i < smaller->pos)
 	{
-		rr(stacks->head_a, stacks->head_b);
+		rr(stacks);
 		i++;
 	}
 	return ;
@@ -140,13 +140,13 @@ void	do_push_bottom_bottom_a(t_node *bigger,
 	i = 0;
 	while (i < ((stacks->a_len - bigger->pos) - (stacks->a_len - smaller->pos)))
 	{
-		rra(stacks->head_a);
+		rra(stacks);
 		i++;
 	}
 	i = -1;
 	while (i < (stacks->a_len - smaller->pos))
 	{
-		rrr(stacks->head_a, stacks->head_b);
+		rrr(stacks);
 		i++;
 	}
 	return ;
@@ -160,13 +160,13 @@ void	do_push_bottom_bottom_b(t_node *bigger,
 	i = 0;
 	while (i < ((stacks->b_len - bigger->pos) - (stacks->b_len - smaller->pos)))
 	{
-		rrb(stacks->head_b);
+		rrb(stacks);
 		i++;
 	}
 	i = -1;
 	while (i < (stacks->b_len - smaller->pos))
 	{
-		rrr(stacks->head_a, stacks->head_b);
+		rrr(stacks);
 		i++;
 	}
 	return ;
@@ -201,18 +201,18 @@ void	do_push_bottom_top2(int index_1,
 	while (i < index_1)
 	{
 		if (letter == 'a')
-			rra(stacks->head_a);
+			rra(stacks);
 		else
-			rrb(stacks->head_b);
+			rrb(stacks);
 		i++;
 	}
 	i = 0;
 	while (i < index_2)
 	{
 		if (letter == 'a')
-			rb(stacks->head_b);
+			rb(stacks);
 		else
-			ra(stacks->head_a);
+			ra(stacks);
 		i++;
 	}
 	return ;
