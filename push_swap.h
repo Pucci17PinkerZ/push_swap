@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/28 15:53:42 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 16:37:10 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ void		free_tab(char **tab, int j);
 /* ========================================================================== */
 /* ==========================Utils============================================*/
 /* ========================================================================== */
-t_node		*find_min(t_node *head);
-t_node		*find_max(t_node *head);
+t_node		*find_min(t_stacks *stacks, char letter);
+t_node		*find_max(t_stacks *stacks, char letter);
 void		find_min_max(t_stacks *stacks);
 long long	ft_atoll(const char *nptr);
 int			find_median(int stack_size);

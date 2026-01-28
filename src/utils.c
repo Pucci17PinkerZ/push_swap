@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/28 16:00:17 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 16:22:35 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,23 @@ int	check_stack_order(t_node *a)
 void	node_position(t_stacks *stacks, char letter)
 {
 	t_node	*tmp;
-
-	if (letter = 'a' && !stacks->head_a)
+	int		i;
+	
+	i = 0;
+	if (letter == 'a' && !stacks->head_a)
 		return ;
-	if (letter = 'b' && !stacks->head_b)
+	if (letter == 'b' && !stacks->head_b)
 		return ;
-	if (letter = 'a')
+	if (letter == 'a')
 		tmp = stacks->head_a;
 	else
 		tmp = stacks->head_b;
-	tmp->pos = -1;
+	tmp->pos = i;
+	tmp = tmp->next;
 	while (tmp)
 	{
-		tmp->pos++;
+		i++;
+		tmp->pos = i;
 		tmp = tmp->next;
 	}
 	return ;
