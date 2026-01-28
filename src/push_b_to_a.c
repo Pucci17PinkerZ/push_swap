@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/28 14:31:47 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 15:54:44 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	push_b_to_a(t_stacks *stacks)
 {
-	node_position(stacks->head_a);
-	node_position(stacks->head_b);
+	node_position(stacks, a);
+	node_position(stacks, b);
 	while (stack_size(stacks->head_b) != 0)//vérifier la condition
 	{
 		find_min_max(stacks);
@@ -25,7 +25,7 @@ void	push_b_to_a(t_stacks *stacks)
 		push_top_or_bottom(stacks, stacks->cheapest, NULL);
 		pa(stacks);
 	}
-	node_position(stacks->head_a);
+	node_position(stacks, a);
 	final_sort(stacks);
 	return ;
 }

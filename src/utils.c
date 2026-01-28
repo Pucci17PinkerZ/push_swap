@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/28 14:28:47 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 16:00:17 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,32 +72,24 @@ int	check_stack_order(t_node *a)
 	return (1);
 }
 
-// void	node_position(t_node *a)
-// {
-// 	t_node	*next_node;
-// 	t_node	*tmp;
 
-// 	tmp = a;
-// 	tmp->pos = 0;
-// 	while (tmp)
-// 	{
-// 		next_node = tmp->next;
-// 		next_node->pos++;
-// 		tmp = next_node;
-// 	}
-// 	return ;
-// }
-
-void	node_position(t_node *a)
+void	node_position(t_stacks *stacks, char letter)
 {
 	t_node	*tmp;
 
-	tmp = a;
-	tmp->pos = 0;
+	if (letter = 'a' && !stacks->head_a)
+		return ;
+	if (letter = 'b' && !stacks->head_b)
+		return ;
+	if (letter = 'a')
+		tmp = stacks->head_a;
+	else
+		tmp = stacks->head_b;
+	tmp->pos = -1;
 	while (tmp)
 	{
-		tmp = tmp->next;
 		tmp->pos++;
+		tmp = tmp->next;
 	}
 	return ;
 }

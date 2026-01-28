@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/28 14:34:40 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 15:53:42 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void		do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stack
 void		do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
 void		push_a_to_b(t_stacks *stacks);
 void		push_b_to_a(t_stacks *stacks);
-void		node_position(t_node *a);
+void		node_position(t_stacks *stacks, char letter);
 void		push_to_top_b(t_stacks *stacks, t_node *target, int stack_size);
 void		sort_node(t_stacks * stacks);
 void		final_sort(t_stacks *stacks);

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/28 12:36:02 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/28 15:37:35 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ void	sort_node(t_stacks *stacks)
 {
 	if (!is_node_sorted(stacks->head_a))
 		return ;
+	if (stack_size(stacks->head_a) == 3 ||
+			stack_size(stacks->head_a) == 4)
+	{
+		sort_three(stacks);
+		return ;
+	}
 	push_a_to_b(stacks);
 	// check si il n'y avit que 3 ou 4 nodes (2 aussi? et 1?)
 	push_b_to_a(stacks);
