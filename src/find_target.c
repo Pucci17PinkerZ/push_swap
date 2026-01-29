@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:23:36 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/29 13:12:01 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 13:26:03 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,29 +91,28 @@ void	find_all_target_2(t_stacks *stacks)
 	t_node	*curr;
 
 	curr = stacks->head_b;
-	while (curr) // On parcourt TOUT B
+	while (curr) // On traite chaque élément de B
 	{
-		curr->target = find_target_a(stacks->head_a, curr->nbr, find_min(stacks, 'a'));
+		curr->target = find_target_a(stacks->head_a,
+				curr->nbr, stacks->min_a);
 		curr = curr->next;
 	}
 }
 
 t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
 {
-	t_node	*curr;
 	t_node	*target;
 
-	curr = a;
 	target = NULL;
-	while (curr) // On parcourt TOUT A
+	while (a) // On parcourt TOUT A, sans s'arrêter au dernier ->next
 	{
-		if (nbr < curr->nbr)
+		if (nbr < a->nbr)
 		{
-			// On veut le PLUS PETIT des chiffres PLUS GRANDS
-			if (!target || curr->nbr < target->nbr)
-				target = curr;
+			// On cherche le PLUS PETIT des chiffres PLUS GRANDS
+			if (!target || a->nbr < target->nbr)
+				target = a;
 		}
-		curr = curr->next;
+		a = a->next;
 	}
 	if (!target)
 		target = min_a;
@@ -123,19 +122,19 @@ t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
 t_node	*find_cheapest(t_stacks *stacks)
 {
 	t_node	*cheapest;
-	t_node	*next_node;
+	t_node	*curr;
 
+	if (!stacks->head_b)
+		return (NULL);
 	cheapest = stacks->head_b;
-	if (stacks->head_b->next == NULL)
-		return (cheapest);
-	next_node = cheapest->next;
-	while (next_node->next)
+	curr = stacks->head_b;
+	while (curr)
 	{
-		if (cheapest->cost == 0)
+		if (curr->cost < cheapest->cost)
+			cheapest = curr;
+		if (cheapest->cost == 0) // Optimisation : on ne trouvera pas mieux
 			return (cheapest);
-		if (cheapest->cost > next_node->cost)
-			cheapest = next_node;
-		next_node = next_node->next;
+		curr = curr->next;
 	}
 	return (cheapest);
 }
