@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:23:36 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/29 15:27:06 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 16:31:20 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	find_all_target_2(t_stacks *stacks)
 	t_node	*curr;
 
 	curr = stacks->head_b;
-	while (curr) // On traite chaque élément de B
+	while (curr)
 	{
 		curr->target = find_target_a(stacks->head_a,
 				curr->nbr, stacks->min_a);
@@ -61,11 +61,10 @@ t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
 {
 	t_node	*target = NULL;
 
-	while (a) // Parcourt toute la liste
+	while (a)
 	{
 		if (nbr < a->nbr)
 		{
-			// On cherche le PLUS PETIT des chiffres PLUS GRANDS
 			if (!target || a->nbr < target->nbr)
 				target = a;
 		}

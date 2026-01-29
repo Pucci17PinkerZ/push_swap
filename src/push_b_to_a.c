@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/29 15:32:13 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 16:27:51 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,40 +78,22 @@ void	push_top_or_bottom(t_stacks *stacks, t_node *cheapest)
 }
 
 
-// void	push_b_to_a(t_stacks *stacks)
-// {
-// 	while (stack_size(stacks->head_b) != 0)
-// 	{
-// 		node_position(stacks, 'a');
-// 		node_position(stacks, 'b');
-// 		find_min_max(stacks);
-// 		find_all_target_2(stacks);
-// 		all_push_cost(stacks);
-// 		stacks->cheapest = find_cheapest(stacks);
-// 		push_top_or_bottom(stacks, stacks->cheapest);
-// 		pa(stacks);
-// 	}
-// 	final_sort(stacks);
-// }
 
 void	push_b_to_a(t_stacks *stacks)
 {
-	// DEBUG: Vérifions la taille vue par cette fonction
+
 	ft_printf("DEBUG: Entree push_b_to_a. Taille B = %d\n", stack_size(stacks->head_b));
 
 	while (stack_size(stacks->head_b) != 0)
 	{
 		node_position(stacks, 'a');
 		node_position(stacks, 'b');
-
-		// AJOUTEZ CETTE FONCTION CRUCIALE (manquante dans votre fichier précédent)
 		find_min_max(stacks); 
 
 		find_all_target_2(stacks);
 		all_push_cost(stacks);
 		stacks->cheapest = find_cheapest(stacks);
 		
-		// DEBUG: Vérifions si cheapest est trouvé
 		if (!stacks->cheapest) 
 			ft_printf("DEBUG: Cheapest est NULL !\n");
 

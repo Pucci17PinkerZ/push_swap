@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 14:28:52 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 16:31:04 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	check_nbr(char *arg)
 	j = 0;
 	while (arg[j])
 	{
-		if (!(ft_isdigit(arg[j]) || arg[j] == '-' || arg[j] == '+'))//checker comment faire pour "--"
+		if (!(ft_isdigit(arg[j]) || arg[j] == '-' || arg[j] == '+'))
 			return (1);
 		if (arg[j] == '-' && arg[j + 1] == '-')
 			return (1);
@@ -146,7 +146,7 @@ int	set_node(t_stacks *stacks, int nbr)
 		new_node->cost = 0;
 		new_node->target = NULL;
 		new_node->next = NULL;
-		new_node->prev = end_node; // <--- AJOUT OBLIGATOIRE
+		new_node->prev = end_node;
 		end_node->next = new_node;
 	}
 	return (0);

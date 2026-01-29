@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 15:27:27 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 16:27:47 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,33 +83,4 @@ void	node_position(t_stacks *stacks, char letter)
 		tmp = tmp->next;
 	}
 	return ;
-}
-
-void	show_stack(t_stacks *stacks)
-{
-	t_node *tmp;
-	
-	ft_printf("\nSTACKS A\n");
-	if (!stacks->head_a)
-	{
-		ft_printf("Stack vide\n");
-	}
-	tmp = stacks->head_a;
-	while (tmp)
-	{
-		ft_printf("node %d  / valeur %d\n", tmp->pos, tmp->nbr);
-		tmp = tmp->next;
-	}
-	ft_printf("\nSTACKS B\n");
-	if (!stacks->head_b)
-	{
-		ft_printf("Stack vide\n");
-	}
-	tmp = stacks->head_b;
-	while (tmp)
-	{
-		ft_printf("node %d  / valeur %d\n", tmp->pos, tmp->nbr);
-		tmp = tmp->next;
-	}
-	ft_printf("\n");
 }

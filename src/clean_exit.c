@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:09:48 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/29 15:12:52 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 16:31:36 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	clean_a(t_stacks *stacks)
 	current = stacks->head_a;
 	while (current)
 	{
-		next_node = current->next; // 1. Sauvegarder l'adresse du suivant
-		free(current);             // 2. Libérer l'actuel
-		current = next_node;       // 3. Passer au suivant
+		next_node = current->next;
+		free(current);
+		current = next_node;
 	}
 	stacks->head_a = NULL;
 }
@@ -49,9 +49,9 @@ void	clean_b(t_stacks *stacks)
 	current = stacks->head_b;
 	while (current)
 	{
-		next_node = current->next; // 1. Sauvegarder l'adresse du suivant
-		free(current);             // 2. Libérer l'actuel
-		current = next_node;       // 3. Passer au suivant
+		next_node = current->next;
+		free(current);
+		current = next_node;
 	}
 	stacks->head_b = NULL;
 }

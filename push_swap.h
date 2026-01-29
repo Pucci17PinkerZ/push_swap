@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 15:20:53 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 16:30:38 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef struct s_stacks
 	t_node	*head_b;
 	t_node	*cheapest;
 	t_node	*min_a;
-	t_node	*max_a;//in use?
-	t_node	*min_b;//in use?
+	t_node	*max_a;
+	t_node	*min_b;
 	t_node	*max_b;
 	int		a_len;
 	int		b_len;
@@ -73,14 +73,8 @@ void	bring_min_to_top(t_stacks *stacks);
 void		sort_three(t_stacks *stacks);
 void	sort_five(t_stacks *stacks);
 void		push_top_or_bottom(t_stacks *stacks, t_node *cheapest);
-// void		push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
 void		do_push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
-// void		push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);
 void		do_push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);void	do_push_mixed(t_stacks *stacks, t_node *cheapest, t_node *target);
-// void		do_push_bottom_bottom_b(t_node *bigger, t_node *smaller, t_stacks *stacks);
-// void		push_bottom_top(t_stacks *stacks, t_node *cheapest, char letter, t_node *target);
-// void		do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks);
-// void		do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
 void	do_push_mixed(t_stacks *stacks, t_node *cheapest, t_node *target);
 void		push_a_to_b(t_stacks *stacks);
 void		push_b_to_a(t_stacks *stacks);
@@ -130,11 +124,5 @@ int			set_node(t_stacks *stacks, int nbr);
 char		**new_args_list(char **av, char **args);
 char		**assign_args(int i, int s, char **av, char	**catcher);
 int			count_args(char **av, int nbr_arg);
-
-
-
-
-///////////ENLEVER A LA FIN
-void	show_stack(t_stacks *stacks);
 
 #endif
