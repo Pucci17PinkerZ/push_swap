@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:09:48 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/29 15:07:58 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 15:12:52 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,36 +22,40 @@ void	clean_exit(t_stacks *stacks)
 
 void	clean_a(t_stacks *stacks)
 {
-	t_node	*tmp;
+	t_node	*current;
+	t_node	*next_node;
 
-	if (!stacks->head_a || stacks->head_a == NULL)
+	if (!stacks || !stacks->head_a)
 		return ;
 
-	tmp = stacks->head_a;
-	while (tmp)
+	current = stacks->head_a;
+	while (current)
 	{
-		tmp = tmp->next;
-		free(stacks->head_a);
-		stacks->head_a = tmp;
+		next_node = current->next; // 1. Sauvegarder l'adresse du suivant
+		free(current);             // 2. Libérer l'actuel
+		current = next_node;       // 3. Passer au suivant
 	}
-	return ;
+	stacks->head_a = NULL;
 }
 
 void	clean_b(t_stacks *stacks)
 {
-	t_node	*tmp;
+	t_node	*current;
+	t_node	*next_node;
 
-	if (!stacks->head_b || stacks->head_b == NULL)
+	if (!stacks || !stacks->head_b)
 		return ;
-	tmp = stacks->head_b;
-	while (tmp)
+
+	current = stacks->head_b;
+	while (current)
 	{
-		free(stacks->head_b);
-		stacks->head_b = tmp;
-		tmp = stacks->head_b->next;
+		next_node = current->next; // 1. Sauvegarder l'adresse du suivant
+		free(current);             // 2. Libérer l'actuel
+		current = next_node;       // 3. Passer au suivant
 	}
-	return ;
+	stacks->head_b = NULL;
 }
+
 
 void	free_tab(char **tab, int j)
 {

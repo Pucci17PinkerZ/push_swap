@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 15:07:35 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 15:20:53 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,18 @@ typedef struct s_stacks
 /* ========================================================================== */
 void		sa(t_stacks *stacks);
 void		sb(t_stacks *stacks);
+void		sa_2(t_stacks *stacks);
+void		sb_2(t_stacks *stacks);
 void		ss(t_stacks *stacks);
 void		ra(t_stacks *stacks);
 void		rb(t_stacks *stacks);
+void		ra_2(t_stacks *stacks);
+void		rb_2(t_stacks *stacks);
 void		rr(t_stacks *stacks);
 void		rra(t_stacks *stacks);
 void		rrb(t_stacks *stacks);
+void		rra_2(t_stacks *stacks);
+void		rrb_2(t_stacks *stacks);
 void		rrr(t_stacks *stacks);
 void		pa(t_stacks *stacks);
 void		pb(t_stacks *stacks);
