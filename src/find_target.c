@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:23:36 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/29 12:48:19 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 13:12:01 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,37 +86,34 @@ t_node	*find_target_b(t_node *b, int nbr, t_node *max_b)
 		target = max_b;
 	return (target);
 }
-void	find_all_target_2(t_stacks *stacks)////////////a modifier!!!!!!!!!!!!!
+void	find_all_target_2(t_stacks *stacks)
 {
-	t_node	*next_node;
+	t_node	*curr;
 
-	next_node = stacks->head_b;
-	while (next_node->next)
+	curr = stacks->head_b;
+	while (curr) // On parcourt TOUT B
 	{
-		next_node->target = find_target_a(stacks->head_a,
-				next_node->nbr, stacks->min_a);
-		next_node = next_node->next;
+		curr->target = find_target_a(stacks->head_a, curr->nbr, find_min(stacks, 'a'));
+		curr = curr->next;
 	}
-	return ;
 }
 
-t_node	*find_target_a(t_node *b, int nbr, t_node *min_a)
+t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
 {
-	t_node	*actual_bigger;
+	t_node	*curr;
 	t_node	*target;
 
-	actual_bigger = b;
+	curr = a;
 	target = NULL;
-	while (actual_bigger->next)
+	while (curr) // On parcourt TOUT A
 	{
-		if (nbr < actual_bigger->nbr)
+		if (nbr < curr->nbr)
 		{
-			if (!target)
-				target = actual_bigger;
-			else if (actual_bigger->nbr > target->nbr)
-				target = actual_bigger;
+			// On veut le PLUS PETIT des chiffres PLUS GRANDS
+			if (!target || curr->nbr < target->nbr)
+				target = curr;
 		}
-		actual_bigger = actual_bigger->next;
+		curr = curr->next;
 	}
 	if (!target)
 		target = min_a;

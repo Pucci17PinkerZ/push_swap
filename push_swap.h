@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 12:53:50 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 13:12:23 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void		final_sort(t_stacks *stacks);
 /* ==========================Analysis=========================================*/
 /* ========================================================================== */
 t_node		*find_target_b(t_node *b, int nbr, t_node *max_b);
-t_node		*find_target_a(t_node *b, int nbr, t_node *min_a);
+t_node		*find_target_a(t_node *a, int nbr, t_node *min_a);
 t_node		*find_cheapest(t_stacks *stacks);
 t_node		*find_node_c(t_node *a);
 void		find_all_target(t_stacks *stacks);
