@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:22:07 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/28 16:19:01 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 14:17:28 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	all_push_cost(t_stacks *stacks)
 	t_node	*next_node;
 
 	next_node = stacks->head_b;
-	while (next_node->next)
+	while (next_node)
 	{
 		node_position(stacks, 'a');
 		node_position(stacks, 'b');

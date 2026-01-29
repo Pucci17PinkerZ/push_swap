@@ -6,32 +6,56 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 12:57:44 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 14:24:38 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+// void	sort_three(t_stacks *stacks)
+// {
+// 	int	num1;
+// 	int	num2;
+// 	int	num3;
+
+// 	num1 = stacks->head_a->nbr;
+// 	num2 = stacks->head_a->next->nbr;
+// 	num3 = stacks->head_a->next->next->nbr;
+// 	if (num1 < num2 && num2 > num3 && num1 < num3)
+// 		rra(stacks);
+// 	else if (num1 > num2 && num2 > num3 && num1 > num3)
+// 		ra(stacks);
+// 	if (num1 > num2 && num2 < num3 && num1 > num3)
+// 		sa(stacks);
+// 	else if (num1 < num2 && num2 > num3 && num1 > num3)
+// 		rra(stacks);
+// 	else if (num1 > num2 && num2 < num3 && num1 > num3)
+// 		ra(stacks);
+// }
 void	sort_three(t_stacks *stacks)
 {
-	int	num1;
-	int	num2;
-	int	num3;
+	int	num1 = stacks->head_a->nbr;
+	int	num2 = stacks->head_a->next->nbr;
+	int	num3 = stacks->head_a->next->next->nbr;
 
-	num1 = stacks->head_a->nbr;
-	num2 = stacks->head_a->next->nbr;
-	num3 = stacks->head_a->next->next->nbr;
-	if (num1 < num2 && num2 > num3 && num1 < num3)
-		rra(stacks);
-	else if (num1 > num2 && num2 > num3 && num1 > num3)
-		ra(stacks);
-	if (num1 > num2 && num2 < num3 && num1 > num3)
+	if (num1 > num2 && num2 < num3 && num1 < num3)
 		sa(stacks);
-	else if (num1 < num2 && num2 > num3 && num1 > num3)
+	else if (num1 > num2 && num2 > num3)
+	{
+		sa(stacks);
 		rra(stacks);
+	}
 	else if (num1 > num2 && num2 < num3 && num1 > num3)
 		ra(stacks);
+	else if (num1 < num2 && num2 > num3 && num1 < num3)
+	{
+		sa(stacks);
+		ra(stacks);
+	}
+	else if (num1 < num2 && num2 > num3 && num1 > num3)
+		rra(stacks);
 }
+
 
 int stack_size(t_node *node)
 {

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/29 12:24:22 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 14:23:37 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	push_b_to_a(t_stacks *stacks)
 	{
 		node_position(stacks, 'a');
 		node_position(stacks, 'b');
+		find_min_max(stacks);
 		find_all_target_2(stacks);
 		all_push_cost(stacks);
 		stacks->cheapest = find_cheapest(stacks);
