@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:09:48 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/28 11:11:45 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 15:07:58 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	clean_exit(t_stacks *stacks)
 {
 	clean_a(stacks);
 	stacks->head_a = NULL;
-	clean_b(stacks->head_b);
+	clean_b(stacks);
 	stacks->head_b = NULL;
 }
 
@@ -37,18 +37,18 @@ void	clean_a(t_stacks *stacks)
 	return ;
 }
 
-void	clean_b(t_node *b)
+void	clean_b(t_stacks *stacks)
 {
 	t_node	*tmp;
 
-	if (!b || b == NULL)
+	if (!stacks->head_b || stacks->head_b == NULL)
 		return ;
-	tmp = b;
+	tmp = stacks->head_b;
 	while (tmp)
 	{
-		free(b);
-		b = tmp;
-		tmp = b->next;
+		free(stacks->head_b);
+		stacks->head_b = tmp;
+		tmp = stacks->head_b->next;
 	}
 	return ;
 }
