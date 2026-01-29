@@ -19,11 +19,12 @@ void	rr(t_stacks *stacks)
 	ft_printf("rr\n");
 	return ;
 }
+
 void	ra_2(t_stacks *stacks)
 {
 	t_node	*new_top;
 	t_node	*old_end;
-	
+
 	old_end = last_node(stacks->head_a);
 	new_top = stacks->head_a->next;
 	new_top->prev = NULL;
@@ -42,17 +43,13 @@ void	rb_2(t_stacks *stacks)
 
 	if (!stacks->head_b || !stacks->head_b->next)
 		return ;
-
 	old_end = last_node(stacks->head_b);
 	new_top = stacks->head_b->next;
-	
 	new_top->prev = NULL;
-	
-
 	stacks->head_b->next = NULL;
 	old_end->next = stacks->head_b;
 	stacks->head_b->prev = old_end;
 	stacks->head_b = new_top;
 	node_position(stacks, 'b');
-		return ;
+	return ;
 }

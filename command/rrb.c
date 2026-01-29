@@ -12,7 +12,6 @@
 
 #include "../push_swap.h"
 
-
 void	rrb(t_stacks *stacks)
 {
 	t_node	*head;

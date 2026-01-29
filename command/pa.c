@@ -15,7 +15,7 @@
 void	pa(t_stacks *stacks)
 {
 	t_node	*new_top;
-	
+
 	stacks->head_a->prev = stacks->head_b;
 	new_top = stacks->head_b->next;
 	stacks->head_b->next = stacks->head_a;

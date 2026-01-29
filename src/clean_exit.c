@@ -27,7 +27,6 @@ void	clean_a(t_stacks *stacks)
 
 	if (!stacks || !stacks->head_a)
 		return ;
-
 	current = stacks->head_a;
 	while (current)
 	{
@@ -45,7 +44,6 @@ void	clean_b(t_stacks *stacks)
 
 	if (!stacks || !stacks->head_b)
 		return ;
-
 	current = stacks->head_b;
 	while (current)
 	{
@@ -55,7 +53,6 @@ void	clean_b(t_stacks *stacks)
 	}
 	stacks->head_b = NULL;
 }
-
 
 void	free_tab(char **tab, int j)
 {

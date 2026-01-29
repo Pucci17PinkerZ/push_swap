@@ -19,6 +19,7 @@ void	ss(t_stacks *stacks)
 	ft_printf("ss\n");
 	return ;
 }
+
 void	sa_2(t_stacks *stacks)
 {
 	t_node	*b;

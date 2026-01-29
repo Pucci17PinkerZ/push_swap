@@ -12,11 +12,10 @@
 
 #include "../push_swap.h"
 
-
 void	pb(t_stacks *stacks)
 {
 	t_node	*new_top;
-	
+
 	if (!stacks->head_b)
 	{
 		new_top = stacks->head_a;
@@ -24,6 +23,7 @@ void	pb(t_stacks *stacks)
 		new_top->next = NULL;
 		stacks->head_a->prev = NULL;
 		stacks->head_b = new_top;
+		ft_printf("pb\n");
 		return ;
 	}
 	stacks->head_b->prev = stacks->head_a;

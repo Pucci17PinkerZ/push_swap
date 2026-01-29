@@ -11,10 +11,12 @@ RM := rm -f
 SRC = src/main.c \
 src/utils.c\
 src/parsing.c\
+src/parsing_2.c\
 src/new_args.c\
 src/simple_sort.c\
 src/find_min_max.c\
 src/clean_exit.c\
+src/do_push.c\
 src/push_cost.c\
 src/find_target.c\
 src/push_b_to_a.c\

@@ -31,6 +31,8 @@ void	sort_node(t_stacks *stacks)
 	int	size;
 
 	size = stack_size(stacks->head_a);
+	if (!is_node_sorted(stacks->head_a))
+		return ;
 	if (size <= 1)
 		return ;
 	if (size == 2)

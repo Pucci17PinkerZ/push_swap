@@ -16,7 +16,7 @@ void	ra(t_stacks *stacks)
 {
 	t_node	*new_top;
 	t_node	*old_end;
-	
+
 	old_end = last_node(stacks->head_a);
 	new_top = stacks->head_a->next;
 	new_top->prev = NULL;

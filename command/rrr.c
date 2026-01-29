@@ -19,6 +19,7 @@ void	rrr(t_stacks *stacks)
 	ft_printf("rrr\n");
 	return ;
 }
+
 void	rra_2(t_stacks *stacks)
 {
 	t_node	*head;

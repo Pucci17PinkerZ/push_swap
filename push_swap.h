@@ -13,7 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -67,20 +66,19 @@ void		pb(t_stacks *stacks);
 /* ========================================================================== */
 /* ==========================Action ==========================================*/
 /* ========================================================================== */
-
-
-void	bring_min_to_top(t_stacks *stacks);
+void		bring_min_to_top(t_stacks *stacks);
 void		sort_three(t_stacks *stacks);
-void	sort_five(t_stacks *stacks);
+void		sort_five(t_stacks *stacks);
 void		push_top_or_bottom(t_stacks *stacks, t_node *cheapest);
 void		do_push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
-void		do_push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);void	do_push_mixed(t_stacks *stacks, t_node *cheapest, t_node *target);
-void	do_push_mixed(t_stacks *stacks, t_node *cheapest, t_node *target);
+void		do_push_bottom_bottom(t_stacks *stacks,
+				t_node *cheapest, t_node *target);
+void		do_push_mixed(t_stacks *stacks, t_node *cheapest, t_node *target);
 void		push_a_to_b(t_stacks *stacks);
 void		push_b_to_a(t_stacks *stacks);
 void		node_position(t_stacks *stacks, char letter);
-void	push_to_top_b(t_stacks *stacks, t_node *target, int stack_len);
-void		sort_node(t_stacks * stacks);
+void		push_to_top_b(t_stacks *stacks, t_node *target, int stack_len);
+void		sort_node(t_stacks *stacks);
 void		final_sort(t_stacks *stacks);
 /* ========================================================================== */
 /* ==========================Analysis=========================================*/
@@ -121,6 +119,7 @@ int			check_args(char **arg_list, t_stacks *stacks);
 int			check_doubles(t_stacks *stacks);
 int			check_nbr(char *arg);
 int			set_node(t_stacks *stacks, int nbr);
+int			set_first_node(t_stacks *stacks);
 char		**new_args_list(char **av, char **args);
 char		**assign_args(int i, int s, char **av, char	**catcher);
 int			count_args(char **av, int nbr_arg);

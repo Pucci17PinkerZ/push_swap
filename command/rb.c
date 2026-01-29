@@ -19,18 +19,14 @@ void	rb(t_stacks *stacks)
 
 	if (!stacks->head_b || !stacks->head_b->next)
 		return ;
-
 	old_end = last_node(stacks->head_b);
 	new_top = stacks->head_b->next;
-	
 	new_top->prev = NULL;
-	
-
 	stacks->head_b->next = NULL;
 	old_end->next = stacks->head_b;
 	stacks->head_b->prev = old_end;
 	stacks->head_b = new_top;
 	node_position(stacks, 'b');
 	ft_printf("rb\n");
-
+	return ;
 }
