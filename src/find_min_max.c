@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:36:13 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/28 17:32:58 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 11:52:00 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_node	*find_min(t_stacks *stacks, char letter)
 			return (new_min);
 	}
 	nbr = new_min->next;
-	while (nbr->next)
+	while (nbr)
 	{
 		if (new_min->nbr > nbr->nbr)
 			new_min = nbr;
@@ -58,7 +58,8 @@ t_node	*find_max(t_stacks *stacks, char letter)
 		if (!new_max->next)
 			return (new_max);
 	}
-	while (nbr->next)
+	nbr = new_max->next;
+	while (nbr)
 	{
 		if (new_max->nbr < nbr->nbr)
 			new_max = nbr;

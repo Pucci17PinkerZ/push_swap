@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/28 17:24:42 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 11:49:13 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	final_sort(t_stacks *stacks)
 	node_on_top = find_min(stacks, 'a');
 	while (node_on_top->pos != 0)
 	{
+		node_position(stacks, 'a');
 		median = find_median(stack_size(stacks->head_a));
 		if (node_on_top->pos <= median)
 			ra(stacks);
