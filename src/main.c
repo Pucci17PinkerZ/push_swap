@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 12:16:22 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 14:41:17 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,24 @@ int	main(int ac, char **av)
 
 void	sort_node(t_stacks *stacks)
 {
-	if (!is_node_sorted(stacks->head_a))
+	int	size;
+
+	size = stack_size(stacks->head_a);
+	if (size <= 1)
 		return ;
-	if (stack_size(stacks->head_a) == 3 ||
-			stack_size(stacks->head_a) == 4)
+	if (size == 2)
 	{
-		sort_three(stacks);
+		if (stacks->head_a->nbr > stacks->head_a->next->nbr)
+			sa(stacks);
 		return ;
 	}
-	push_a_to_b(stacks);
-	// check si il n'y avit que 3 ou 4 nodes (2 aussi? et 1?)
-	push_b_to_a(stacks);
-	return ;
+	if (size == 3)
+		sort_three(stacks);
+	else if (size <= 5)
+		sort_five(stacks); // On va créer cette fonction
+    // Cas > 5 : Algorithme complexe
+	else
+		push_a_to_b(stacks);
 }
 
 int	is_node_sorted(t_node *a)

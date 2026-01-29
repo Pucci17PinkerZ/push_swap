@@ -12,6 +12,7 @@ SRC = src/main.c \
 src/utils.c\
 src/parsing.c\
 src/new_args.c\
+src/simple_sort.c\
 src/find_min_max.c\
 src/clean_exit.c\
 src/push_cost.c\

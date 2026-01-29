@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 13:12:23 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 14:54:42 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,11 @@ void		pb(t_stacks *stacks);
 /* ========================================================================== */
 /* ==========================Action ==========================================*/
 /* ========================================================================== */
+
+
+void	bring_min_to_top(t_stacks *stacks);
 void		sort_three(t_stacks *stacks);
+void	sort_five(t_stacks *stacks);
 void		push_top_or_bottom(t_stacks *stacks, t_node *cheapest);
 // void		push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
 void		do_push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
