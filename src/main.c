@@ -48,7 +48,7 @@ void	sort_node(t_stacks *stacks)
 		push_a_to_b(stacks);
 		push_b_to_a(stacks);
 	}
-		
+	return ;
 }
 
 int	is_node_sorted(t_node *a)

@@ -17,22 +17,19 @@ void	sort_three(t_stacks *stacks)
 	t_node	*biggest_node;
 
 	biggest_node = find_max(stacks, 'a');
-
-
 	if (stacks->head_a == biggest_node)
 		ra(stacks);
 	else if (stacks->head_a->next == biggest_node)
 		rra(stacks);
-
-
 	if (stacks->head_a->nbr > stacks->head_a->next->nbr)
 		sa(stacks);
 }
 
-int stack_size(t_node *node)
+int	stack_size(t_node *node)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (node)
 	{
 		i++;
@@ -64,7 +61,7 @@ void	node_position(t_stacks *stacks, char letter)
 {
 	t_node	*tmp;
 	int		i;
-	
+
 	i = 0;
 	if (letter == 'a' && !stacks->head_a)
 		return ;

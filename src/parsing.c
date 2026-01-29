@@ -16,7 +16,6 @@ int	check_input(char **av, t_stacks *stacks)
 {
 	char	**arg_list;
 
-
 	arg_list = NULL;
 	arg_list = new_args_list(av, NULL);
 	if (!arg_list)
@@ -25,9 +24,6 @@ int	check_input(char **av, t_stacks *stacks)
 		return (free_tab(arg_list, 0), clean_exit(stacks), 1);
 	return (free_tab(arg_list, 0), 0);
 }
-
-
-
 
 int	check_args(char **arg_list, t_stacks *stacks)
 {
@@ -78,7 +74,6 @@ long long	ft_atoll(const char *nptr)
 	}
 	return (res * sign);
 }
-
 
 int	check_doubles(t_stacks *stacks)
 {

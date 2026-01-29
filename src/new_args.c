@@ -15,10 +15,9 @@
 char	**new_args_list(char **av, char **args)
 {
 	int	nbr_arg;
-	
+
 	nbr_arg = 0;
 	nbr_arg = count_args(av, 0);
-
 	args = assign_args(nbr_arg, 0, av, NULL);
 	if (!args)
 		return (NULL);
@@ -35,7 +34,7 @@ char	**assign_args(int i, int s, char **av, char	**catcher)
 	if (!catcher)
 		return (NULL);
 	i = 0;
-	while(av[a])
+	while (av[a])
 	{
 		s = 0;
 		args = ft_split(av[a], ' ');
@@ -56,12 +55,12 @@ char	**assign_args(int i, int s, char **av, char	**catcher)
 
 int	count_args(char **av, int nbr_arg)
 {
-	int	i;
-	int	s;
+	int		i;
+	int		s;
 	char	**args;
 
 	i = 0;
-	while(av[i])
+	while (av[i])
 	{
 		s = 0;
 		args = ft_split(av[i], ' ');

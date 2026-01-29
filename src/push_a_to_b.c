@@ -18,7 +18,6 @@ void	push_a_to_b(t_stacks *stacks)
 	pb(stacks);
 	node_position(stacks, 'a');
 	node_position(stacks, 'b');
-	ft_printf("1 et 2 push dans b car stacksize est plus grand que 4\n");
 	while (stack_size(stacks->head_a) != 3)
 	{
 		node_position(stacks, 'a');
@@ -29,11 +28,8 @@ void	push_a_to_b(t_stacks *stacks)
 		push_to_top_b(stacks, stacks->head_a->target, stacks->b_len);
 		pb(stacks);
 	}
-	ft_printf("stack == 3\n");
 	sort_three(stacks);
-	ft_printf("sort_three\n");
 }
-
 
 void	push_to_top_b(t_stacks *stacks, t_node *target, int stack_len)
 {
@@ -43,7 +39,6 @@ void	push_to_top_b(t_stacks *stacks, t_node *target, int stack_len)
 		above_median = 1;
 	else
 		above_median = 0;
-
 	while (stacks->head_b != target)
 	{
 		if (above_median)

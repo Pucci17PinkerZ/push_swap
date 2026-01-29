@@ -44,6 +44,7 @@ t_node	*find_target_b(t_node *b, int nbr, t_node *max_b)
 		target = max_b;
 	return (target);
 }
+
 void	find_all_target_2(t_stacks *stacks)
 {
 	t_node	*curr;
@@ -59,8 +60,9 @@ void	find_all_target_2(t_stacks *stacks)
 
 t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
 {
-	t_node	*target = NULL;
+	t_node	*target;
 
+	target = NULL;
 	while (a)
 	{
 		if (nbr < a->nbr)
@@ -70,14 +72,18 @@ t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
 		}
 		a = a->next;
 	}
-	return (target ? target : min_a);
+	if (target)
+		return (target);
+	return (min_a);
 }
 
 t_node	*find_cheapest(t_stacks *stacks)
 {
-	t_node	*cheapest = stacks->head_b;
-	t_node	*curr = stacks->head_b;
+	t_node	*cheapest;
+	t_node	*curr;
 
+	cheapest = stacks->head_b;
+	curr = stacks->head_b;
 	while (curr)
 	{
 		if (curr->cost < cheapest->cost)
