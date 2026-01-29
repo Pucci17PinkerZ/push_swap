@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/28 11:01:58 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 12:39:20 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ long long	ft_atoll(const char *nptr)
 	}
 	return (res * sign);
 }
+
 
 int	check_doubles(t_stacks *stacks)
 {

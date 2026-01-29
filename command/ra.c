@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:23:53 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/28 14:18:49 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 11:58:13 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ra(t_stacks *stacks)
 	old_end->next = stacks->head_a;
 	stacks->head_a->prev = old_end;
 	stacks->head_a = new_top;
+	node_position(stacks, 'a');
 	ft_printf("ra\n");
 	return ;
 }

@@ -6,49 +6,86 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:23:36 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/26 14:15:25 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 12:48:19 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+// void	find_all_target(t_stacks *stacks)
+// {
+// 	t_node	*next_node;
+
+// 	next_node = stacks->head_a;
+// 	while (next_node->next)
+// 	{
+// 		next_node->target = find_target_b(stacks->head_b,
+// 				next_node->nbr, stacks->max_b);
+// 		next_node = next_node->next;
+// 	}
+// 	return ;
+// }
+
+// t_node	*find_target_b(t_node *b, int nbr, t_node *max_a)
+// {
+// 	t_node	*actual_smaller;
+// 	t_node	*target;
+
+// 	actual_smaller = b;
+// 	target = NULL;
+// 	while (actual_smaller->next)
+// 	{
+// 		if (nbr > actual_smaller->nbr)
+// 		{
+// 			if (!target)
+// 				target = actual_smaller;
+// 			else if (actual_smaller->nbr < target->nbr)
+// 				target = actual_smaller;
+// 		}
+// 		actual_smaller = actual_smaller->next;
+// 	}
+// 	if (!target)
+// 		target = max_a;
+// 	return (target);
+// }
+
+
+
 void	find_all_target(t_stacks *stacks)
 {
-	t_node	*next_node;
+	t_node	*curr;
 
-	next_node = stacks->head_a;
-	while (next_node->next)
+	curr = stacks->head_a;
+	while (curr) // Parcourir jusqu'au bout
 	{
-		next_node->target = find_target_b(stacks->head_b,
-				next_node->nbr, stacks->max_b);
-		next_node = next_node->next;
+		curr->target = find_target_b(stacks->head_b, curr->nbr, stacks->max_b);
+		curr = curr->next;
 	}
-	return ;
 }
 
-t_node	*find_target_b(t_node *b, int nbr, t_node *max_a)
+
+t_node	*find_target_b(t_node *b, int nbr, t_node *max_b)
 {
-	t_node	*actual_smaller;
+	t_node	*actual_node;
 	t_node	*target;
 
-	actual_smaller = b;
+	actual_node = b;
 	target = NULL;
-	while (actual_smaller->next)
+	while (actual_node) // Assure-toi de parcourir TOUTE la liste
 	{
-		if (nbr > actual_smaller->nbr)
+		if (nbr > actual_node->nbr)
 		{
-			if (!target)
-				target = actual_smaller;
-			else if (actual_smaller->nbr < target->nbr)
-				target = actual_smaller;
+			// On cherche le "plus grand" parmi les plus petits
+			if (!target || actual_node->nbr > target->nbr)
+				target = actual_node;
 		}
-		actual_smaller = actual_smaller->next;
+		actual_node = actual_node->next;
 	}
+	// Si aucun n'est plus petit, la cible est le max de B
 	if (!target)
-		target = max_a;
+		target = max_b;
 	return (target);
 }
-
 void	find_all_target_2(t_stacks *stacks)////////////a modifier!!!!!!!!!!!!!
 {
 	t_node	*next_node;

@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/28 16:37:10 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 12:53:50 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,26 @@ void		pb(t_stacks *stacks);
 /* ==========================Action ==========================================*/
 /* ========================================================================== */
 void		sort_three(t_stacks *stacks);
-void		push_top_or_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);
-void		push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
-void		do_push_top_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
-void		push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);
-void		do_push_bottom_bottom_a(t_node *bigger, t_node *smaller, t_stacks *stacks);
-void		do_push_bottom_bottom_b(t_node *bigger, t_node *smaller, t_stacks *stacks);
-void		push_bottom_top(t_stacks *stacks, t_node *cheapest, char letter, t_node *target);
-void		do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks);
-void		do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
+void		push_top_or_bottom(t_stacks *stacks, t_node *cheapest);
+// void		push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
+void		do_push_top_top(t_stacks *stacks, t_node *cheapest, t_node *target);
+// void		push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);
+void		do_push_bottom_bottom(t_stacks *stacks, t_node *cheapest, t_node *target);void	do_push_mixed(t_stacks *stacks, t_node *cheapest, t_node *target);
+// void		do_push_bottom_bottom_b(t_node *bigger, t_node *smaller, t_stacks *stacks);
+// void		push_bottom_top(t_stacks *stacks, t_node *cheapest, char letter, t_node *target);
+// void		do_push_bottom_top2(int index_1, int index_2, char letter, t_stacks *stacks);
+// void		do_push_bottom_top(t_node *bigger, t_node *smaller, char letter, t_stacks *stacks);
+void	do_push_mixed(t_stacks *stacks, t_node *cheapest, t_node *target);
 void		push_a_to_b(t_stacks *stacks);
 void		push_b_to_a(t_stacks *stacks);
 void		node_position(t_stacks *stacks, char letter);
-void		push_to_top_b(t_stacks *stacks, t_node *target, int stack_size);
+void	push_to_top_b(t_stacks *stacks, t_node *target, int stack_len);
 void		sort_node(t_stacks * stacks);
 void		final_sort(t_stacks *stacks);
 /* ========================================================================== */
 /* ==========================Analysis=========================================*/
 /* ========================================================================== */
-t_node		*find_target_b(t_node *b, int nbr, t_node *max_a);
+t_node		*find_target_b(t_node *b, int nbr, t_node *max_b);
 t_node		*find_target_a(t_node *b, int nbr, t_node *min_a);
 t_node		*find_cheapest(t_stacks *stacks);
 t_node		*find_node_c(t_node *a);

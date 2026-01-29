@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/28 17:47:15 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 12:57:44 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,16 @@ void	sort_three(t_stacks *stacks)
 		ra(stacks);
 }
 
-int	stack_size(t_node *node)
+int stack_size(t_node *node)
 {
-	t_node	*next_node;
-	int		i;
+    int i = 0;
 
-	i = 1;
-	if (!node)
-		return (0);
-	next_node = node->next;
-	if (next_node == NULL)
-		return (i);
-	while (next_node)
-	{
-		next_node = next_node->next;
-		i++;
-	}
-	return (i);
+    while (node)
+    {
+        i++;
+        node = node->next;
+    }
+    return (i);
 }
 
 int	check_stack_order(t_node *a)
