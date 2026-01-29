@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 13:18:51 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 13:33:58 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,8 @@ int	set_node(t_stacks *stacks, int nbr)
 			return (1);
 		new_node->nbr = nbr;
 		new_node->pos = end_node->pos + 1;
+		new_node->cost = 0;
+		new_node->target = NULL;
 		new_node->next = NULL;
 		end_node->next = new_node;
 	}

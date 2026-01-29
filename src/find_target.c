@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:23:36 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/29 13:26:03 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/29 13:36:18 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,9 @@ void	find_all_target_2(t_stacks *stacks)
 
 t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
 {
-	t_node	*target;
+	t_node	*target = NULL;
 
-	target = NULL;
-	while (a) // On parcourt TOUT A, sans s'arrêter au dernier ->next
+	while (a) // Parcourt toute la liste
 	{
 		if (nbr < a->nbr)
 		{
@@ -114,25 +113,19 @@ t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
 		}
 		a = a->next;
 	}
-	if (!target)
-		target = min_a;
-	return (target);
+	return (target ? target : min_a);
 }
 
 t_node	*find_cheapest(t_stacks *stacks)
 {
-	t_node	*cheapest;
-	t_node	*curr;
+	t_node	*cheapest = stacks->head_b;
+	t_node	*curr = stacks->head_b;
 
-	if (!stacks->head_b)
-		return (NULL);
-	cheapest = stacks->head_b;
-	curr = stacks->head_b;
 	while (curr)
 	{
 		if (curr->cost < cheapest->cost)
 			cheapest = curr;
-		if (cheapest->cost == 0) // Optimisation : on ne trouvera pas mieux
+		if (cheapest->cost == 0)
 			return (cheapest);
 		curr = curr->next;
 	}
