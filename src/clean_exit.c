@@ -56,7 +56,7 @@ void	clean_b(t_stacks *stacks)
 
 void	free_tab(char **tab, int j)
 {
-	if (!tab || !tab[j])
+	if (!tab)
 		return ;
 	while (tab[j])
 		j++;
