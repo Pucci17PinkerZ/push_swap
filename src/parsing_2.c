@@ -19,7 +19,7 @@ int	set_node(t_stacks *stacks, int nbr)
 
 	if (stacks->head_a == NULL)
 	{
-		if (set_first_node(stacks))
+		if (set_first_node(stacks, nbr))
 			return (1);
 	}
 	else
@@ -55,7 +55,7 @@ t_node	*last_node(t_node *a)
 	return (final_node);
 }
 
-int	set_first_node(t_stacks *stacks)
+int	set_first_node(t_stacks *stacks, int nbr)
 {
 	stacks->head_a = malloc(sizeof(t_node));
 	if (!stacks->head_a)

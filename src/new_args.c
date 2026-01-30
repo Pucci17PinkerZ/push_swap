@@ -42,6 +42,8 @@ char	**assign_args(int i, int s, char **av, char	**catcher)
 			return (NULL);
 		while (args[s])
 		{
+			if (args[0] == 0)
+				return (NULL);
 			catcher[i] = ft_strdup(args[s]);
 			i++;
 			s++;

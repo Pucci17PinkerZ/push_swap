@@ -119,7 +119,7 @@ int			check_args(char **arg_list, t_stacks *stacks);
 int			check_doubles(t_stacks *stacks);
 int			check_nbr(char *arg);
 int			set_node(t_stacks *stacks, int nbr);
-int			set_first_node(t_stacks *stacks);
+int			set_first_node(t_stacks *stacks, int nbr);
 char		**new_args_list(char **av, char **args);
 char		**assign_args(int i, int s, char **av, char	**catcher);
 int			count_args(char **av, int nbr_arg);
