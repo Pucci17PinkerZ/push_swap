@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:23:36 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/30 22:18:28 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/31 02:50:01 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ t_node	*find_cheapest(t_stacks *stacks)
 	t_node	*cheapest;
 	t_node	*curr;
 
-	cheapest = stacks->head_b;
-	curr = stacks->head_b;
+	cheapest = stacks->head_a;
+	curr = stacks->head_a;
 	while (curr)
 	{
 		if (curr->cost < cheapest->cost)

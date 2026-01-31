@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/31 02:16:50 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/31 02:56:40 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	push_b_to_a(t_stacks *stacks)
 
 
 		stacks->a_len = stack_size(stacks->head_a);
-		push_to_top_b(stacks, stacks->head_a->target, stacks->a_len);
+		push_to_top_b(stacks, stacks->head_b->target, stacks->a_len);
 
 		pa(stacks);
 	}
