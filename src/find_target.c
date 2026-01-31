@@ -6,76 +6,83 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:23:36 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/29 16:31:20 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/01/30 22:18:28 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	find_all_target(t_stacks *stacks)
-{
-	t_node	*curr;
+// void	find_all_target(t_stacks *stacks)
+// {
+// 	t_node	*curr;
 
-	curr = stacks->head_a;
-	while (curr)
-	{
-		curr->target = find_target_b(stacks->head_b, curr->nbr, stacks->max_b);
-		curr = curr->next;
-	}
-}
+// 	curr = stacks->head_a;
+// 	while (curr)
+// 	{
+// 		curr->target = find_target_b(stacks->head_b, curr->nbr, stacks->max_b);
+// 		curr = curr->next;
+// 	}
+// }
 
-t_node	*find_target_b(t_node *b, int nbr, t_node *max_b)
-{
-	t_node	*actual_node;
-	t_node	*target;
 
-	actual_node = b;
-	target = NULL;
-	while (actual_node)
-	{
-		if (nbr > actual_node->nbr)
-		{
-			if (!target || actual_node->nbr > target->nbr)
-				target = actual_node;
-		}
-		actual_node = actual_node->next;
-	}
-	if (!target)
-		target = max_b;
-	return (target);
-}
 
-void	find_all_target_2(t_stacks *stacks)
-{
-	t_node	*curr;
+// t_node	*find_target_b(t_node *b, int nbr, t_node *max_b)
+// {
+// 	t_node	*actual_node;
+// 	t_node	*target;
 
-	curr = stacks->head_b;
-	while (curr)
-	{
-		curr->target = find_target_a(stacks->head_a,
-				curr->nbr, stacks->min_a);
-		curr = curr->next;
-	}
-}
+// 	actual_node = b;
+// 	target = NULL;
+// 	while (actual_node)
+// 	{
+// 		if (nbr > actual_node->nbr)
+// 		{
+// 			if (!target || actual_node->nbr > target->nbr)
+// 				target = actual_node;
+// 		}
+// 		actual_node = actual_node->next;
+// 	}
+// 	if (!target)
+// 		target = max_b;
+// 	return (target);
+// }
 
-t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
-{
-	t_node	*target;
 
-	target = NULL;
-	while (a)
-	{
-		if (nbr < a->nbr)
-		{
-			if (!target || a->nbr < target->nbr)
-				target = a;
-		}
-		a = a->next;
-	}
-	if (target)
-		return (target);
-	return (min_a);
-}
+
+// void	find_all_target_2(t_stacks *stacks)
+// {
+// 	t_node	*curr;
+
+// 	curr = stacks->head_b;
+// 	while (curr)
+// 	{
+// 		curr->target = find_target_a(stacks->head_a,
+// 				curr->nbr, stacks->min_a);
+// 		curr = curr->next;
+// 	}
+// }
+
+
+
+// t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
+// {
+// 	t_node	*target;
+
+// 	target = NULL;
+// 	while (a)
+// 	{
+// 		if (nbr < a->nbr)
+// 		{
+// 			if (!target || a->nbr < target->nbr)
+// 				target = a;
+// 		}
+// 		a = a->next;
+// 	}
+// 	if (target)
+// 		return (target);
+// 	return (min_a);
+// }
+
 
 t_node	*find_cheapest(t_stacks *stacks)
 {
