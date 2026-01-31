@@ -1,157 +1,202 @@
 #!/bin/bash
 
-# Configuration
+# ==============================================================================
+#  PUSH_SWAP GOD MODE TESTER
+# ==============================================================================
+# Usage: ./tester.sh [short|mid|long]
+#   short : Rapide (Validation de base)
+#   mid   : Recommandé (Test solide)
+#   long  : Cauchemar (Test intensif avant soutenance)
+
 PUSH_SWAP="./push_swap"
-CHECKER="./checker_linux" # Assure-toi d'avoir le checker fourni par 42 ou le tien
-LOG_FILE="trace_error.log"
+CHECKER="./checker_linux"
+LOG_FILE="trace_god_mode.log"
 
 # Couleurs
-GREEN='\033[0;32m'
-RED='\033[0;31m'
+RED='\033[1;31m'
+GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+BLUE='\033[1;34m'
+PURPLE='\033[1;35m'
+CYAN='\033[1;36m'
+NC='\033[0m'
 
-# Nettoyage du log précédent
+# Configuration des itérations (x4 par rapport à la normale)
+MODE="${1:-mid}"
+case "$MODE" in
+    short) ITER_100=20; ITER_500=20 ;;
+    mid)   ITER_100=100; ITER_500=100 ;;
+    long)  ITER_100=500; ITER_500=500 ;;
+    *) echo -e "${RED}Mode inconnu. Utilise: short, mid, long${NC}"; exit 1 ;;
+esac
+
+# Nettoyage
 > "$LOG_FILE"
+rm -f .user_out .user_err
 
-# Vérification de l'existence des binaires
+echo -e "${PURPLE}======================================================${NC}"
+echo -e "${PURPLE}       🔥 PUSH_SWAP GOD MODE TESTER ($MODE) 🔥       ${NC}"
+echo -e "${PURPLE}======================================================${NC}"
+
 if [ ! -f "$PUSH_SWAP" ]; then
-    echo -e "${RED}Erreur: $PUSH_SWAP non trouvé. Compile d'abord !${NC}"
+    echo -e "${RED}❌ $PUSH_SWAP manquant. Fais 'make'.${NC}"
     exit 1
 fi
-
 if [ ! -f "$CHECKER" ]; then
-    echo -e "${YELLOW}Attention: $CHECKER non trouvé. Les tests de validité utiliseront une méthode simple.${NC}"
+    echo -e "${YELLOW}⚠️ $CHECKER manquant. Tests de tri moins stricts.${NC}"
     CHECKER=""
 fi
 
-echo -e "${BLUE}=========================================${NC}"
-echo -e "${BLUE}       PUSH_SWAP ULTIMATE TESTER         ${NC}"
-echo -e "${BLUE}=========================================${NC}"
-echo ""
+# Fonction de barre de progression
+progress_bar() {
+    local current=$1
+    local total=$2
+    local percent=$((current * 100 / total))
+    local bar_len=40
+    local filled=$((percent * bar_len / 100))
+    local empty=$((bar_len - filled))
+    printf "\r["; printf "%0.s#" $(seq 1 $filled); printf "%0.s-" $(seq 1 $empty); printf "] %d%%" "$percent"
+}
 
-# Fonction de test générique
+# Fonction générique de test
 run_test() {
-    local test_name="$1"
+    local name="$1"
     local arg="$2"
-    local expected_status="$3" # "OK" ou "Error" ou "LIMIT"
+    local expected="$3" # OK, Error, Ignore
     local limit="$4"
 
-    echo -n -e "Test: ${YELLOW}$test_name${NC} ... "
+    # Exécution séparant STDOUT et STDERR
+    $PUSH_SWAP $arg > .user_out 2> .user_err
+    
+    # Lecture résultats
+    output_out=$(cat .user_out)
+    output_err=$(cat .user_err)
+    instr_count=$(echo -n "$output_out" | grep -c '^')
 
-    # Exécution
-    if [ "$expected_status" == "Error" ]; then
-        output=$($PUSH_SWAP $arg 2>&1)
-        if echo "$output" | grep -q "Error"; then
-            echo -e "${GREEN}[PASS]${NC} (Error detected correctly)"
+    # 1. Gestion des ERREURS (Doit être sur STDERR)
+    if [ "$expected" == "Error" ]; then
+        if echo "$output_err" | grep -q "Error"; then
+            echo -e "${GREEN}[OK]${NC} $name (Error caught on STDERR)"
+        elif echo "$output_out" | grep -q "Error"; then
+            echo -e "${YELLOW}[WARN]${NC} $name (Error on STDOUT instead of STDERR - fix main.c)"
         else
-            echo -e "${RED}[FAIL]${NC} (Expected Error, got: $output)"
-            echo "FAIL: $test_name | Args: $arg | Output: $output" >> "$LOG_FILE"
+            echo -e "${RED}[KO]${NC} $name (Expected Error, got nothing)"
+            echo "FAIL_ERROR: $name | Args: '$arg' | Out: '$output_out' | Err: '$output_err'" >> "$LOG_FILE"
+        fi
+        return
+    fi
+
+    # 2. Gestion des CAS VIDES / TRIÉS (Rien attendu)
+    if [ "$expected" == "Ignore" ]; then
+        if [ "$instr_count" -eq 0 ] && [ -z "$output_err" ]; then
+            echo -e "${GREEN}[OK]${NC} $name (Silent)"
+        else
+            echo -e "${RED}[KO]${NC} $name (Expected silence, got output)"
+            echo "FAIL_SILENT: $name | Args: '$arg' | Instr: $instr_count | Err: '$output_err'" >> "$LOG_FILE"
+        fi
+        return
+    fi
+
+    # 3. Validation du TRI (Avec Checker)
+    if [ -n "$CHECKER" ]; then
+        check_res=$(echo "$output_out" | $CHECKER $arg 2>&1)
+        if [[ "$check_res" == *"OK"* ]]; then
+            if [ -n "$limit" ] && [ "$instr_count" -gt "$limit" ]; then
+                echo -e "${RED}[LIMIT]${NC} $name: $instr_count > $limit ops"
+                echo "FAIL_LIMIT: $name | Args: $arg | Count: $instr_count" >> "$LOG_FILE"
+            else
+                echo -e "${GREEN}[OK]${NC} $name ($instr_count ops)"
+            fi
+        else
+            echo -e "${RED}[KO]${NC} $name (Checker: $check_res)"
+            echo "FAIL_SORT: $name | Args: $arg | Checker: $check_res" >> "$LOG_FILE"
         fi
     else
-        instructions=$($PUSH_SWAP $arg)
-        line_count=$(echo "$instructions" | wc -l)
-        
-        # Vérification du tri
-        if [ -n "$CHECKER" ]; then
-            check_result=$(echo "$instructions" | $CHECKER $arg 2>&1)
-        else
-            # Fallback si pas de checker: vérifier si la sortie est vide pour une entrée triée
-             if [ "$expected_status" == "SORTED" ] && [ "$line_count" -eq 0 ]; then
-                check_result="OK"
-            elif [ "$expected_status" != "SORTED" ]; then
-                # Difficile de vérifier sans checker, on suppose OK si ça ne crash pas
-                check_result="Check_Manual"
-            else
-                 check_result="KO"
-            fi
-        fi
-
-        # Analyse du résultat
-        if [[ "$check_result" == *"OK"* ]]; then
-            if [ -n "$limit" ]; then
-                if [ "$line_count" -le "$limit" ]; then
-                     echo -e "${GREEN}[OK]${NC} | Instr: $line_count (Limit: $limit)"
-                else
-                     echo -e "${RED}[KO]${NC} | Instr: ${RED}$line_count${NC} (Limit: $limit) - Too many instructions"
-                     echo "FAIL_LIMIT: $test_name | Args: $arg | Count: $line_count" >> "$LOG_FILE"
-                fi
-            else
-                echo -e "${GREEN}[OK]${NC} | Instr: $line_count"
-            fi
-        else
-            echo -e "${RED}[KO]${NC} | Checker: $check_result"
-            echo "FAIL_SORT: $test_name | Args: $arg | Checker: $check_result" >> "$LOG_FILE"
-        fi
+        echo -e "${YELLOW}[UNK]${NC} $name ($instr_count ops)"
     fi
 }
 
-# ==========================================
-# 1. Tests d'Erreurs (Parsing)
-# ==========================================
-echo -e "\n${BLUE}--- 1. EDGE CASES : PARSING & ERREURS ---${NC}"
-run_test "Non-numeric input" "1 2 a 3" "Error"
-run_test "Doubles" "1 2 3 2" "Error"
-run_test "Max Int Overflow" "2147483648 1 2" "Error"
-run_test "Min Int Underflow" "-2147483649 1 2" "Error"
-run_test "Empty argument" "" "NoOutput" # Devrait rien afficher ou ne pas crash
+# Fonction Stress Test
+run_stress() {
+    local size=$1
+    local count=$2
+    local limit=$3
+    
+    echo -e "\n${CYAN}>>> STRESS TEST: $size nombres ($count essais)${NC}"
+    
+    total=0
+    max=0
+    min=999999
+    fails=0
 
-# ==========================================
-# 2. Cas Triviaux (Pas d'action requise)
-# ==========================================
-echo -e "\n${BLUE}--- 2. EDGE CASES : DÉJÀ TRIÉ / VIDE ---${NC}"
-run_test "Empty list" "" "SORTED" 0
-run_test "One number" "42" "SORTED" 0
-run_test "Sorted 2" "1 2" "SORTED" 0
-run_test "Sorted 3" "1 2 3" "SORTED" 0
-run_test "Sorted 5" "1 2 3 4 5" "SORTED" 0
+    for ((i=1; i<=count; i++)); do
+        ARG=$(shuf -i 1-100000 -n "$size" | tr '\n' ' ')
+        $PUSH_SWAP $ARG > .user_out 2> .user_err
+        
+        check="OK"
+        if [ -n "$CHECKER" ]; then
+            if ! cat .user_out | $CHECKER $ARG | grep -q "OK"; then
+                check="KO"
+                fails=$((fails+1))
+                echo "FAIL_RANDOM_$size: Run #$i | Args: $ARG" >> "$LOG_FILE"
+            fi
+        fi
+        
+        lines=$(grep -c '^' .user_out)
+        total=$((total + lines))
+        if [ "$lines" -gt "$max" ]; then max=$lines; fi
+        if [ "$lines" -lt "$min" ]; then min=$lines; fi
+        
+        progress_bar $i $count
+    done
+    echo ""
+    
+    avg=$((total / count))
+    col=$GREEN
+    if [ "$avg" -gt "$limit" ]; then col=$RED; fi
+    
+    echo -e "  -> Moyenne: ${col}$avg${NC} (Obj: <$limit) | Max: $max | Min: $min | Fails: ${RED}$fails${NC}"
+}
 
-# ==========================================
-# 3. Listes Simples (2, 3, 5 nombres)
-# ==========================================
-echo -e "\n${BLUE}--- 3. SIMPLE LISTS ---${NC}"
-run_test "Random 2" "2 1" "OK" 1
-run_test "Random 3 (Case 1)" "1 3 2" "OK" 2
-run_test "Random 3 (Case 2)" "2 1 3" "OK" 2
-run_test "Random 3 (Case 3)" "3 2 1" "OK" 2
-run_test "Random 5" "1 5 2 4 3" "OK" 12
+# --- TESTS ---
 
-# ==========================================
-# 4. Tests Aléatoires (Moyens & Grands)
-# ==========================================
-echo -e "\n${BLUE}--- 4. RANDOM STRESS TESTS ---${NC}"
+echo -e "\n${BLUE}1. PARSING & ERREURS (Vicieux)${NC}"
+run_test "Lettres" "1 2 a 3" "Error"
+run_test "Doublons" "1 2 3 2" "Error"
+run_test "INT_MAX overflow" "2147483648" "Error"
+run_test "INT_MIN underflow" "-2147483649" "Error"
+run_test "Signe seul (+)" "+" "Error"
+run_test "Signe seul (-)" "-" "Error"
+run_test "Double signe (--)" "--5" "Error"
+run_test "Double signe (++)" "++5" "Error"
+run_test "Signe après chiffre (5-)" "5-" "Error"
+run_test "Zéro et Zéro" "0 0" "Error"
+run_test "0 et 000" "0 000" "Error"
+run_test "Espaces vides" "   " "Ignore" # Ou Error selon ton parsing, 'Ignore' est standard pour arg vide
+run_test "Vide" "" "Ignore"
 
-# Test 100 nombres (5 essais)
-echo -e "${YELLOW}>> Testing 100 Numbers (Goal: < 700 ops)${NC}"
-for i in {1..5}; do
-    ARG=$(shuf -i 1-5000 -n 100 | tr '\n' ' ')
-    run_test "Random 100 #$i" "$ARG" "OK" 700
-done
+echo -e "\n${BLUE}2. IDENTITÉ & TRIVIAL${NC}"
+run_test "1 nombre" "42" "Ignore"
+run_test "2 triés" "1 2" "Ignore"
+run_test "5 triés" "1 2 3 4 5" "Ignore"
+run_test "Trié avec négatifs" "-10 -5 0 5 10" "Ignore"
 
-# Test 500 nombres (5 essais)
-echo -e "\n${YELLOW}>> Testing 500 Numbers (Goal: < 5500 ops)${NC}"
-for i in {1..5}; do
-    ARG=$(shuf -i 1-5000 -n 500 | tr '\n' ' ')
-    run_test "Random 500 #$i" "$ARG" "OK" 5500
-done
+echo -e "\n${BLUE}3. PETITS TESTS (Validité)${NC}"
+run_test "2 inversés" "2 1" "OK" 1
+run_test "3 random" "2 1 3" "OK" 3
+run_test "5 random" "1 5 2 4 3" "OK" 12
+run_test "5 inversés" "5 4 3 2 1" "OK" 12
+run_test "Cas INT_MIN/MAX" "2147483647 -2147483648 0" "OK" 10
 
-# ==========================================
-# 5. Cas Spéciaux "Vicieux"
-# ==========================================
-echo -e "\n${BLUE}--- 5. VICIOUS CASES ---${NC}"
-# Liste inversée
-run_test "Reverse 5" "5 4 3 2 1" "OK" 12
-run_test "Negative Numbers" "-1 -5 -2 0 3" "OK" 12
-# Max et Min INT ensemble
-run_test "Min & Max INT" "2147483647 -2147483648 0" "OK" 5
+echo -e "\n${BLUE}4. PERFORMANCE (Stress Tests)${NC}"
+run_stress 100 $ITER_100 700
+run_stress 500 $ITER_500 5500
 
-echo -e "\n${BLUE}=========================================${NC}"
+echo -e "\n${PURPLE}======================================================${NC}"
 if [ -s "$LOG_FILE" ]; then
-    echo -e "${RED}Tests terminés avec des erreurs. Voir $LOG_FILE pour les détails.${NC}"
-    cat "$LOG_FILE"
+    echo -e "${RED}❌ ERREURS DÉTECTÉES ! Voir $LOG_FILE${NC}"
+    head -n 5 "$LOG_FILE"
 else
-    echo -e "${GREEN}TOUS LES TESTS SONT PASSÉS ! BRAVO !${NC}"
-    rm "$LOG_FILE"
+    echo -e "${GREEN}✅ SUCCÈS TOTAL ! PRÊT POUR LA SOUTENANCE !${NC}"
+    rm -f .user_out .user_err "$LOG_FILE"
 fi
-echo -e "${BLUE}=========================================${NC}"

@@ -1,6 +1,0 @@
-FAIL_SORT: Empty argument | Args:  | Checker: 
-FAIL_SORT: Empty list | Args:  | Checker: 
-FAIL_SORT: One number | Args: 42 | Checker: Error
-FAIL_SORT: Sorted 2 | Args: 1 2 | Checker: Error
-FAIL_SORT: Sorted 3 | Args: 1 2 3 | Checker: Error
-FAIL_SORT: Sorted 5 | Args: 1 2 3 4 5 | Checker: Error
