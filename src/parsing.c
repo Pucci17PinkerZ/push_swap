@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/02/02 04:04:42 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/02/02 11:49:35 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,26 +96,6 @@ int	check_doubles(t_stacks *stacks)
 	}
 	return (0);
 }
-
-// int	check_nbr(char *arg)
-// {
-// 	int	j;
-
-// 	j = 0;
-// 	while (arg[j])
-// 	{
-// 		if (!(ft_isdigit(arg[j]) || arg[j] == '-' || arg[j] == '+'))
-// 			return (1);
-// 		if (arg[j] == '-' && arg[j + 1] == '-')
-// 			return (1);
-// 		if (arg[j] == '+' && arg[j + 1] == '+')
-// 			return (1);
-// 		j++;
-// 	}
-// 	if (arg[j - 1] == '-' || arg[j - 1] == '+')
-// 		return (1);
-// 	return (0);
-// }
 
 int	check_nbr(char *arg)
 {

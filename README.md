@@ -1,4 +1,4 @@
-_This project has been created as part of the 42 curriculum by nfiora-d._
+*This project has been created as part of the 42 curriculum by nfiora-d.*
 
 # 🔄 Push_swap
 
@@ -25,7 +25,7 @@ Les mouvements autorisés sont :
 ## Instructions
 
 ### 1. Compilation
-Pour compiler le projet, clonez le dépôt et utilisez la commande `make` à la racine :
+Pour compiler le projet, clonez le dépôt et utilisez la commande `make` à la racine (aussi dispo sur github):
 
 ```bash
 git clone [https://github.com/nfiora-d/push_swap.git](https://github.com/nfiora-d/push_swap.git)
