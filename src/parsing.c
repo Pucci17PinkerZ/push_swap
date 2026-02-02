@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 16:31:04 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/02/02 02:50:01 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ long long	ft_atoll(const char *nptr)
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		res = res * 10 + (nptr[i] - '0');
+		if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
+			return 
 		i++;
 	}
 	return (res * sign);
@@ -95,22 +97,40 @@ int	check_doubles(t_stacks *stacks)
 	return (0);
 }
 
+// int	check_nbr(char *arg)
+// {
+// 	int	j;
+
+// 	j = 0;
+// 	while (arg[j])
+// 	{
+// 		if (!(ft_isdigit(arg[j]) || arg[j] == '-' || arg[j] == '+'))
+// 			return (1);
+// 		if (arg[j] == '-' && arg[j + 1] == '-')
+// 			return (1);
+// 		if (arg[j] == '+' && arg[j + 1] == '+')
+// 			return (1);
+// 		j++;
+// 	}
+// 	if (arg[j - 1] == '-' || arg[j - 1] == '+')
+// 		return (1);
+// 	return (0);
+// }
+
 int	check_nbr(char *arg)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	while (arg[j])
-	{
-		if (!(ft_isdigit(arg[j]) || arg[j] == '-' || arg[j] == '+'))
-			return (1);
-		if (arg[j] == '-' && arg[j + 1] == '-')
-			return (1);
-		if (arg[j] == '+' && arg[j + 1] == '+')
-			return (1);
-		j++;
-	}
-	if (arg[j - 1] == '-' || arg[j - 1] == '+')
+	i = 0;
+	if (arg[0] == '-' || arg[0] == '+')
+		i++;
+	if (!arg[i])
 		return (1);
+	while (arg[i])
+	{
+		if (!ft_isdigit(arg[i]))
+			return (1);
+		i++;
+	}
 	return (0);
 }
