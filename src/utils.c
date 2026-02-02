@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/01/29 16:27:47 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/02/01 22:47:47 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,12 @@ void	node_position(t_stacks *stacks, char letter)
 		tmp = tmp->next;
 	}
 	return ;
+}
+
+int	find_median(int stack_size)
+{
+	int	median;
+
+	median = stack_size / 2;
+	return (median);
 }

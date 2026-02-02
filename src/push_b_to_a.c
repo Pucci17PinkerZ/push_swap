@@ -6,49 +6,26 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 17:15:01 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/01/31 02:56:40 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/02/02 00:30:41 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-// void	push_top_or_bottom(t_stacks *stacks, t_node *cheapest)
-// {
-// 	t_node	*target;
-// 	int		median_a;
-// 	int		median_b;
-
-// 	target = cheapest->target;
-// 	median_a = find_median(stack_size(stacks->head_a));
-// 	median_b = find_median(stack_size(stacks->head_b));
-// 	if (cheapest->pos == 0 && target->pos == 0)
-// 		return ;
-// 	if (target->pos <= median_a && cheapest->pos <= median_b)
-// 		do_push_top_top(stacks, cheapest, target);
-// 	else if (target->pos > median_a && cheapest->pos > median_b)
-// 		do_push_bottom_bottom(stacks, cheapest, target);
-// 	else
-// 		do_push_mixed(stacks, cheapest, target);
-// 	return ;
-// }
-
-// void	push_b_to_a(t_stacks *stacks)
-// {
-// 	while (stack_size(stacks->head_b) != 0)
-// 	{
-// 		node_position(stacks, 'a');
-// 		node_position(stacks, 'b');
-// 		find_min_max(stacks);
-// 		find_all_target_2(stacks);
-// 		all_push_cost(stacks);
-// 		stacks->cheapest = find_cheapest(stacks);
-// 		push_top_or_bottom(stacks, stacks->cheapest);
-// 		pa(stacks);
-// 	}
-// 	final_sort(stacks);
-// }
-
-
+void	push_b_to_a(t_stacks *stacks)
+{
+	while (stack_size(stacks->head_b) != 0)
+	{
+		node_position(stacks, 'a');
+		node_position(stacks, 'b');
+		find_min_max(stacks);
+		find_all_target_2(stacks);
+		stacks->a_len = stack_size(stacks->head_a);
+		push_to_top_a(stacks, stacks->head_b->target, stacks->a_len);
+		pa(stacks);
+	}
+	final_sort(stacks);
+}
 
 void	final_sort(t_stacks *stacks)
 {
@@ -68,52 +45,7 @@ void	final_sort(t_stacks *stacks)
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void	push_b_to_a(t_stacks *stacks)
-{
-	while (stack_size(stacks->head_b) != 0)
-	{
-		node_position(stacks, 'a');
-		node_position(stacks, 'b');
-		find_min_max(stacks);
-		find_all_target_2(stacks);
-
-
-		stacks->a_len = stack_size(stacks->head_a);
-		push_to_top_b(stacks, stacks->head_b->target, stacks->a_len);
-
-		pa(stacks);
-	}
-	final_sort(stacks);
-}
-
-
-
-
-void	push_to_top_b(t_stacks *stacks, t_node *target, int stack_len)
+void	push_to_top_a(t_stacks *stacks, t_node *target, int stack_len)
 {
 	int	above_median;
 
@@ -129,47 +61,3 @@ void	push_to_top_b(t_stacks *stacks, t_node *target, int stack_len)
 			rra(stacks);
 	}
 }
-
-
-
-
-
-
-
-
-
-void	find_all_target_2(t_stacks *stacks)
-{
-	t_node	*curr;
-
-	curr = stacks->head_b;
-	while (curr)
-	{
-		curr->target = find_target_a(stacks->head_a,
-				curr->nbr, stacks->min_a);
-		curr = curr->next;
-	}
-}
-
-
-t_node	*find_target_a(t_node *a, int nbr, t_node *min_a)
-{
-	t_node	*target;
-
-	target = NULL;
-	while (a)
-	{
-		if (nbr < a->nbr)
-		{
-			if (!target || a->nbr < target->nbr)
-				target = a;
-		}
-		a = a->next;
-	}
-	if (target)
-		return (target);
-	return (min_a);
-}
-
-
-
