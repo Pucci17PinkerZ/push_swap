@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 19:08:09 by pucci17pink       #+#    #+#             */
-/*   Updated: 2026/02/02 00:29:05 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/02/02 03:40:22 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,16 @@ char	**assign_args(int i, int s, char **av, char	**catcher)
 		s = 0;
 		args = ft_split(av[a], ' ');
 		if (!args)
+			return (free(catcher), NULL); // Sécurité
+		while (args[s])
 		{
-			if (args[0] == 0)
-				return (NULL);
 			catcher[i] = ft_strdup(args[s]);
+			if (!catcher[i])
+			{
+				free_tab(args, 0);
+				free_tab(catcher, 0);
+				return (NULL);
+			}
 			i++;
 			s++;
 		}
