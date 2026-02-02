@@ -6,7 +6,7 @@
 /*   By: pucci17pinker <pucci17pinker@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:57:06 by nfiora-d          #+#    #+#             */
-/*   Updated: 2026/02/02 03:42:00 by pucci17pink      ###   ########.fr       */
+/*   Updated: 2026/02/02 03:50:49 by pucci17pink      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ void	sort_node(t_stacks *stacks)
 		return ;
 	if (size == 2)
 	{
-		if (stacks->head_a->nbr > stacks->head_a->next->nbr)
-			sa(stacks);
+		sa(stacks);
 		return ;
 	}
 	if (size == 3)
@@ -58,13 +57,13 @@ int	is_node_sorted(t_node *a)
 	t_node	*curr;
 
 	if (!a)
-		return (0);
+		return (1);
 	curr = a;
 	while (curr->next)
 	{
 		if (curr->nbr > curr->next->nbr)
-			return (1);
+			return (0);
 		curr = curr->next;
 	}
-	return (0);
+	return (1);
 }
